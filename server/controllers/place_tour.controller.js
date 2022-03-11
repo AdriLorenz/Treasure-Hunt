@@ -3,7 +3,7 @@ const Place_Tour = db.place_tour;
 const Op = db.Sequelize.Op;
 
 //Create and Save a new Place
-exports.create = async (tourId, req, res) => {
+exports.create = async (req, res) => {
   // if (!req.body.place_id) {
   //   res.status(400).send({
   //     message: "Content can not be empty!",

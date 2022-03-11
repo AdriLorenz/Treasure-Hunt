@@ -19,7 +19,7 @@ exports.create = async (req, res) => {
   };
 
   //Save Place in the database
-  Place_Tour.create(place_tour)
+  Award_User.create(place_tour)
     .then((data) => {
       res.send(data);
     })
@@ -32,7 +32,7 @@ exports.create = async (req, res) => {
 
 //Retrieve all Awards from the database
 exports.findAll = (req, res) => {
-  Place_Tour.findAll()
+  Award_User.findAll()
     .then((data) => {
       res.send(data);
     })
