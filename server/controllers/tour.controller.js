@@ -17,6 +17,7 @@ exports.create = async (req, res) => {
   //   tour_name: req.body.tour_name,
   //   tour_description: req.body.tour_description,
   //   tour_likes: req.body.tour_likes,
+  //   tour_duration: req.body.tour_duration,
   //   category_id_fk: req.body.category_id_fk,
   // };
 
@@ -25,6 +26,7 @@ exports.create = async (req, res) => {
     tour_name: req.body.tour_name,
     tour_description: req.body.tour_description,
     tour_likes: req.body.tour_likes,
+    tour_duration: req.body.tour_duration,
     category_id_fk: req.body.category_id_fk,
   })
 

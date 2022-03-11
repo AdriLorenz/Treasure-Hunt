@@ -22,6 +22,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
 
+      place_location: {
+        type: Sequelize.STRING,
+      },
+
       type_id_fk: {
         type: Sequelize.INTEGER,
       },

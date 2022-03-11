@@ -17,6 +17,7 @@ exports.create = async (req, res) => {
     place_name: req.body.place_name,
     place_description: req.body.place_description,
     place_points: req.body.place_points,
+    place_location: req.body.place_location,
     type_id_fk: req.body.type_id_fk,
   };
 
