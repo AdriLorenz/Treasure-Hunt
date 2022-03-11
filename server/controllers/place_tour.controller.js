@@ -29,3 +29,16 @@ exports.create = async (tourId, req, res) => {
       });
     });
 };
+
+//Retrieve all Awards from the database
+exports.findAll = (req, res) => {
+  Place_Tour.findAll()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while retrieving Awards.",
+      });
+    });
+};
