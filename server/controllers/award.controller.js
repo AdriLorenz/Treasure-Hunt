@@ -2,7 +2,40 @@ const db = require("../models");
 const Award = db.awards;
 const Op = db.Sequelize.Op;
 
-//Create and Save a new Award
+// INDEX
+exports.findAll = (req, res) => {
+  Award.findAll()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while retrieving Awards.",
+      });
+    });
+};
+
+// SHOW
+exports.findOne = (req, res) => {
+  const id = req.params.award_id;
+  Award.findByPk(id)
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Award with id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving Award with id=" + id,
+      });
+    });
+};
+
+// CREATE
 exports.create = (req, res) => {
   if (!req.body.award_name) {
     res.status(400).send({
@@ -28,41 +61,8 @@ exports.create = (req, res) => {
       });
     });
 };
-//Retrieve all Awards from the database
-exports.findAll = (req, res) => {
-  Award.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while retrieving Awards.",
-      });
-    });
-};
 
-//Find a single Award with an id
-exports.findOne = (req, res) => {
-  const id = req.params.award_id;
-  Award.findByPk(id)
-    .then((data) => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find Award with id=${id}.`,
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Error retrieving Award with id=" + id,
-      });
-    });
-};
-
-//Update a Award by the id in the request
-
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.award_id;
   Award.update(req.body, {
@@ -86,8 +86,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a Award with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.award_id;
   Award.destroy({

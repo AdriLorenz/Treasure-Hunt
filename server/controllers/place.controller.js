@@ -3,6 +3,7 @@ const Place = db.places;
 //const Place_Tour = db.place_tour;
 const Op = db.Sequelize.Op;
 
+<<<<<<< HEAD
 //Create and Save a new Place
 exports.create = async (req, res) => {
   if (!req.body.place_name) {
@@ -34,8 +35,22 @@ exports.create = async (req, res) => {
     });
 };
 //Retrieve all Places from the database
+=======
+// INDEX
+>>>>>>> d9a50574f77c594363022d6633d8957119d5b6fa
 exports.findAll = (req, res) => {
-  Place.findAll()
+  Place.findAll(
+    {
+      include: [
+        {
+          model: db.types
+        },
+        {
+          model: db.tours
+        }
+      ]
+    }
+  )
     .then((data) => {
       res.send(data);
     })
@@ -46,10 +61,21 @@ exports.findAll = (req, res) => {
     });
 };
 
-//Find a single Place with an id
+// SHOW
 exports.findOne = (req, res) => {
   const id = req.params.place_id;
-  Place.findByPk(id)
+  Place.findByPk(id,
+    {
+      include: [
+        {
+          model: db.types
+        },
+        {
+          model: db.tours
+        }
+      ]
+    }  
+  )
     .then((data) => {
       if (data) {
         res.send(data);
@@ -66,8 +92,37 @@ exports.findOne = (req, res) => {
     });
 };
 
-//Update a Place by the id in the request
+// CREATE
+exports.create = async (req, res) => {
+  if (!req.body.place_name) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
 
+    return;
+  }
+  //Create a Place
+  const place = {
+    place_name: req.body.place_name,
+    place_description: req.body.place_description,
+    place_points: req.body.place_points,
+    place_location: req.body.place_location,
+    type_id_fk: req.body.type_id_fk,
+  };
+
+  //Save Place in the database
+  const createdPlace = Place.create(place)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while creating the place.",
+      });
+    });
+};
+
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.place_id;
   Place.update(req.body, {
@@ -91,8 +146,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a Place with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.place_id;
   Place.destroy({

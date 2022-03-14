@@ -49,7 +49,21 @@ exports.addAPlace = async(req, res) => {
 }
 //Retrieve all Tours from the database
 exports.findAll = (req, res) => {
-  Tour.findAll()
+  Tour.findAll(
+    {
+      include: [
+        {
+          model: db.categories
+        },
+        {
+          model: db.places
+        },
+        {
+          model: db.users
+        }
+      ]
+    }
+  )
     .then((data) => {
       res.send(data);
     })
@@ -60,10 +74,24 @@ exports.findAll = (req, res) => {
     });
 };
 
-//Find a single Tour with an id
+// SHOW
 exports.findOne = (req, res) => {
   const id = req.params.tour_id;
-  Tour.findByPk(id, {include: db.places})
+  Tour.findByPk(id,
+    {
+      include: [
+        {
+          model: db.categories
+        },
+        {
+          model: db.places
+        },
+        {
+          model: db.users
+        }
+      ]
+    }  
+  )
     .then((data) => {
       if (data) {
         res.send(data);
@@ -80,8 +108,44 @@ exports.findOne = (req, res) => {
     });
 };
 
-//Update a Tour by the id in the request
+// CREATE
+exports.create = async (req, res) => {
+  if (!req.body.tour_name) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
 
+    return;
+  }
+  //Create a Tour
+  // const tour = {
+  //   tour_name: req.body.tour_name,
+  //   tour_description: req.body.tour_description,
+  //   tour_likes: req.body.tour_likes,
+  //   tour_duration: req.body.tour_duration,
+  //   category_id_fk: req.body.category_id_fk,
+  // };
+
+  //Save Tours in the database
+  const tour = Tour.create({
+    tour_name: req.body.tour_name,
+    tour_description: req.body.tour_description,
+    tour_likes: req.body.tour_likes,
+    tour_duration: req.body.tour_duration,
+    category_id_fk: req.body.category_id_fk,
+  })
+
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while creating the tour.",
+      });
+    });
+};
+
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.tour_id;
   Tour.update(req.body, {
@@ -105,8 +169,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a Tour with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.tour_id;
   Tour.destroy({

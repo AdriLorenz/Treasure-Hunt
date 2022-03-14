@@ -25,6 +25,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
       },
 
+      tour_duration: {
+        type: Sequelize.STRING
+      },
+
       category_id_fk: {
         type: Sequelize.INTEGER,
       },

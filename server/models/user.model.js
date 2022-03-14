@@ -24,6 +24,7 @@ module.exports = (sequelize, Sequelize) => {
 
       user_score: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
 
       role_id_fk: {

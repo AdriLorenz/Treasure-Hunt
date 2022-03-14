@@ -1,39 +1,26 @@
 const db = require("../models");
 const User = db.users;
+const bcrypt = require("bcrypt");
 const Op = db.Sequelize.Op;
 
-//Create and Save a new User
-exports.create = (req, res) => {
-  if (!req.body.user_name) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-
-    return;
-  }
-  //Create a User
-  const user = {
-    user_name: req.body.user_name,
-    user_email: req.body.user_email,
-    user_password: req.body.user_password,
-    user_score: req.body.user_score,
-    role_id_fk: req.body.role_id_fk,
-  };
-
-  //Save User in the database
-  User.create(user)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while creating the user.",
-      });
-    });
-};
-//Retrieve all Users from the database
+// INDEX
 exports.findAll = (req, res) => {
-  User.findAll()
+  User.findAll(
+    {
+      include: [
+        {
+          model: db.roles
+        },
+        {
+          model: db.tours
+        },
+        {
+          model: db.awards
+        }
+      ]
+    },
+
+  )
     .then((data) => {
       res.send(data);
     })
@@ -44,10 +31,24 @@ exports.findAll = (req, res) => {
     });
 };
 
-//Find a single User with an id
+// SHOW
 exports.findOne = (req, res) => {
   const id = req.params.user_id;
-  User.findByPk(id)
+  User.findByPk(id,
+    {
+      include: [
+        {
+          model: db.roles
+        },
+        {
+          model: db.tours
+        },
+        {
+          model: db.awards
+        }
+      ]
+    }
+  )
     .then((data) => {
       if (data) {
         res.send(data);
@@ -64,8 +65,35 @@ exports.findOne = (req, res) => {
     });
 };
 
-//Update a User by the id in the request
+// CREATE
+exports.create = async (req, res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.user_password, 3);
 
+    const userWithSameEmail = await User.findOne({
+      where: { user_email: req.body.user_email },
+    });
+
+    if (userWithSameEmail) {
+      return res.send("Email already used !");
+    } else {
+      const user = await User.create({
+        user_name: req.body.user_name,
+        user_email: req.body.user_email,
+        user_password: hashedPassword,
+        role_id_fk: req.body.role_id_fk,
+      });
+
+      res.json({
+        message: "User Created",
+      });
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.user_id;
   User.update(req.body, {
@@ -89,8 +117,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a User with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.user_id;
   User.destroy({

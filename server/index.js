@@ -27,6 +27,7 @@ require("./routes/tour.routes")(app);
 require("./routes/type.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/user_tour.routes")(app);
+require("./routes/login.routes")(app);
 
 app.listen(5000, () =>
   console.log("Server running at http://localhost:5000", " ", global.appRoot)
