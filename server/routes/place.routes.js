@@ -4,13 +4,13 @@ module.exports = (app) => {
   // INDEX
   router.get("/", places.findAll);
   // SHOW
-  router.get("/:id", places.findOne);
+  router.get("/:place_id", places.findOne);
   // CREATE
   router.post("/", places.create);
   // UPDATE
-  router.put("/:id", places.update);
+  router.put("/:place_id", places.update);
   // DESTROY
-  router.delete("/:id", places.delete);
+  router.delete("/:place_id", places.delete);
 
   app.use("/api/places", router);
 };

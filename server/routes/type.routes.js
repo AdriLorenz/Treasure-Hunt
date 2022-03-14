@@ -4,13 +4,13 @@ module.exports = (app) => {
   // INDEX
   router.get("/", types.findAll);
   // SHOW
-  router.get("/:id", types.findOne);
+  router.get("/:type_id", types.findOne);
   // CREATE
   router.post("/", types.create);
   // UPDATE
-  router.put("/:id", types.update);
+  router.put("/:type_id", types.update);
   // DESTROY
-  router.delete("/:id", types.delete);
+  router.delete("/:type_id", types.delete);
 
   app.use("/api/types", router);
 };
