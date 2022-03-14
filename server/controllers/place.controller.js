@@ -3,7 +3,62 @@ const Place = db.places;
 const Place_Tour = db.place_tour;
 const Op = db.Sequelize.Op;
 
-//Create and Save a new Place
+// INDEX
+exports.findAll = (req, res) => {
+  Place.findAll(
+    {
+      include: [
+        {
+          model: db.types
+        },
+        {
+          model: db.tours
+        }
+      ]
+    }
+  )
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while retrieving places.",
+      });
+    });
+};
+
+// SHOW
+exports.findOne = (req, res) => {
+  const id = req.params.place_id;
+  Place.findByPk(id,
+    {
+      include: [
+        {
+          model: db.types
+        },
+        {
+          model: db.tours
+        }
+      ]
+    }  
+  )
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Place with id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving Place with id=" + id,
+      });
+    });
+};
+
+// CREATE
 exports.create = async (req, res) => {
   if (!req.body.place_name) {
     res.status(400).send({
@@ -32,41 +87,8 @@ exports.create = async (req, res) => {
       });
     });
 };
-//Retrieve all Places from the database
-exports.findAll = (req, res) => {
-  Place.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while retrieving places.",
-      });
-    });
-};
 
-//Find a single Place with an id
-exports.findOne = (req, res) => {
-  const id = req.params.place_id;
-  Place.findByPk(id)
-    .then((data) => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find Place with id=${id}.`,
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Error retrieving Place with id=" + id,
-      });
-    });
-};
-
-//Update a Place by the id in the request
-
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.place_id;
   Place.update(req.body, {
@@ -90,8 +112,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a Place with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.place_id;
   Place.destroy({

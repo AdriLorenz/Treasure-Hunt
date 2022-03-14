@@ -2,7 +2,56 @@ const db = require("../models");
 const Type = db.types;
 const Op = db.Sequelize.Op;
 
-//Create and save a new type
+// INDEX
+exports.findAll = (req, res) => {
+  Type.findAll(
+    {
+      include: [
+        {
+          model: db.places
+        }
+      ]
+    }
+  )
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while retrieving types.",
+      });
+    });
+};
+
+// SHOW
+exports.findOne = (req, res) => {
+  const id = req.params.type_id;
+  Type.findByPk(id,
+    {
+      include: [
+        {
+          model: db.places
+        }
+      ]
+    }  
+  )
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find type with id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving type with id=" + id,
+      });
+    });
+};
+
+// CREATE
 exports.create = async (req, res) => {
   if (!req.body.type_name) {
     res.status(400).send({
@@ -30,40 +79,7 @@ exports.create = async (req, res) => {
     });
 };
 
-//Retrieve all type from the database
-exports.findAll = (req, res) => {
-  Type.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while retrieving types.",
-      });
-    });
-};
-
-//Find a single type with an id
-exports.findOne = (req, res) => {
-  const id = req.params.type_id;
-  Type.findByPk(id)
-    .then((data) => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find type with id=${id}.`,
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Error retrieving type with id=" + id,
-      });
-    });
-};
-
-//Update a type by the id in the request
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.type_id;
   Type.update(req.body, {
@@ -87,7 +103,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a type with the specified id in the request
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.type_id;
   Type.destroy({

@@ -3,7 +3,68 @@ const Tour = db.tours;
 const Op = db.Sequelize.Op;
 const createTour = require("./place_tour.controller").create;
 
-//Create and Save a new Tour
+// INDEX
+exports.findAll = (req, res) => {
+  Tour.findAll(
+    {
+      include: [
+        {
+          model: db.categories
+        },
+        {
+          model: db.places
+        },
+        {
+          model: db.users
+        }
+      ]
+    }
+  )
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while retrieving tours.",
+      });
+    });
+};
+
+// SHOW
+exports.findOne = (req, res) => {
+  const id = req.params.tour_id;
+  Tour.findByPk(id,
+    {
+      include: [
+        {
+          model: db.categories
+        },
+        {
+          model: db.places
+        },
+        {
+          model: db.users
+        }
+      ]
+    }  
+  )
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Tour with id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving Tour with id=" + id,
+      });
+    });
+};
+
+// CREATE
 exports.create = async (req, res) => {
   if (!req.body.tour_name) {
     res.status(400).send({
@@ -39,41 +100,8 @@ exports.create = async (req, res) => {
       });
     });
 };
-//Retrieve all Tours from the database
-exports.findAll = (req, res) => {
-  Tour.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while retrieving tours.",
-      });
-    });
-};
 
-//Find a single Tour with an id
-exports.findOne = (req, res) => {
-  const id = req.params.tour_id;
-  Tour.findByPk(id)
-    .then((data) => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find Tour with id=${id}.`,
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Error retrieving Tour with id=" + id,
-      });
-    });
-};
-
-//Update a Tour by the id in the request
-
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.tour_id;
   Tour.update(req.body, {
@@ -97,8 +125,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a Tour with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.tour_id;
   Tour.destroy({
