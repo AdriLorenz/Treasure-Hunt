@@ -2,7 +2,40 @@ const db = require("../models");
 const Role = db.roles;
 const Op = db.Sequelize.Op;
 
-//Create and Save a new Role
+// INDEX
+exports.findAll = (req, res) => {
+  Role.findAll()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occured while retrieving roles.",
+      });
+    });
+};
+
+// SHOW
+exports.findOne = (req, res) => {
+  const id = req.params.role_id;
+  Role.findByPk(id)
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find Role with id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving Role with id=" + id,
+      });
+    });
+};
+
+// CREATE
 exports.create = (req, res) => {
   if (!req.body.role_name) {
     res.status(400).send({
@@ -27,41 +60,8 @@ exports.create = (req, res) => {
       });
     });
 };
-//Retrieve all Roles from the database
-exports.findAll = (req, res) => {
-  Role.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while retrieving roles.",
-      });
-    });
-};
 
-//Find a single Role with an id
-exports.findOne = (req, res) => {
-  const id = req.params.role_id;
-  Role.findByPk(id)
-    .then((data) => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find Role with id=${id}.`,
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Error retrieving Role with id=" + id,
-      });
-    });
-};
-
-//Update a Role by the id in the request
-
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.role_id;
   Role.update(req.body, {
@@ -85,8 +85,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a Role with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.role_id;
   Role.destroy({

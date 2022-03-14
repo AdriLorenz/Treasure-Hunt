@@ -1,4 +1,4 @@
-const db = require("../models");
+/*const db = require("../models");
 const Place_Tour = db.place_tour;
 const Op = db.Sequelize.Op;
 
@@ -42,3 +42,4 @@ exports.findAll = (req, res) => {
       });
     });
 };
+*/

@@ -2,7 +2,57 @@ const db = require("../models");
 const Category = db.categories;
 const Op = db.Sequelize.Op;
 
-//Create and Save a new Place
+// INDEX
+exports.findAll = (req, res) => {
+  Category.findAll(
+    {
+      include: [
+        {
+          model: db.tours
+        }
+      ]
+    }
+  )
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occured while retrieving categories.",
+      });
+    });
+};
+
+// SHOW
+exports.findOne = (req, res) => {
+  const id = req.params.category_id;
+  Category.findByPk(id,
+    {
+      include: [
+        {
+          model: db.tours
+        }
+      ]
+    }
+  )
+    .then((data) => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find category with id=${id}.`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Error retrieving category with id=" + id,
+      });
+    });
+};
+
+// CREATE
 exports.create = async (req, res) => {
   if (!req.body.category_name) {
     res.status(400).send({
@@ -29,42 +79,8 @@ exports.create = async (req, res) => {
       });
     });
 };
-//Retrieve all Categories from the database
-exports.findAll = (req, res) => {
-  Category.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occured while retrieving categories.",
-      });
-    });
-};
 
-//Find a single Category with an id
-exports.findOne = (req, res) => {
-  const id = req.params.category_id;
-  Category.findByPk(id)
-    .then((data) => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find category with id=${id}.`,
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: "Error retrieving category with id=" + id,
-      });
-    });
-};
-
-//Update a category by the id in the request
-
+// UPDATE
 exports.update = (req, res) => {
   const id = req.params.category_id;
   Category.update(req.body, {
@@ -88,8 +104,7 @@ exports.update = (req, res) => {
     });
 };
 
-//Delete a category with the specified id in the request
-
+// DESTROY
 exports.delete = (req, res) => {
   const id = req.params.category_id;
   Category.destroy({

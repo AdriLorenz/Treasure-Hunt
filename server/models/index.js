@@ -24,9 +24,7 @@ const modules = [
   require("./type.model"),
   require("./category.model"),
   require("./award.model"),
-  require("./place_tour.model"),
   require("./user_tour.model"),
-  require("./award_user.model"),
 ];
 
 modules.forEach((module) => {
