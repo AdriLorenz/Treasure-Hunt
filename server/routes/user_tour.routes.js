@@ -4,7 +4,7 @@ module.exports = (app) => {
   // INDEX
   // router.get("/", user_tours.findAll);
   // CREATE
-  // router.post("/", user_tours.create);
+   router.post("/", user_tours.create);
 
   app.use("/api/user_tours", router);
 };

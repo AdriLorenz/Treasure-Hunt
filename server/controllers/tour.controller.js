@@ -1,6 +1,7 @@
 const db = require("../models");
 const Tour = db.tours;
 const Place = db.places;
+const User = db.users;
 const Op = db.Sequelize.Op;
 //const createTour = require("./place_tour.controller").create;
 
@@ -25,7 +26,7 @@ exports.create = async (req, res) => {
   const tour = Tour.create({
     tour_name: req.body.tour_name,
     tour_description: req.body.tour_description,
-    tour_starts: req.body.tour_starts,
+    tour_likes: req.body.tour_likes,
     tour_duration: req.body.tour_duration,
     category_id_fk: req.body.category_id_fk,
   })
@@ -39,13 +40,37 @@ exports.create = async (req, res) => {
       });
     });
 };
-
+//Add a place to a tour
 exports.addAPlace = async(req, res) => {
-  const tour = await Tour.findByPk(req.idTour);
-  const place = await Place.findByPk(req.idPlace);
+  try {
+   
+  const tour = await Tour.findByPk(req.body.idTour);
+  const place = await Place.findByPk(req.body.idPlace);
 
+  console.log(tour)
+  console.log(place)
   tour.addPlace(place)
+ 
+  res.send("success")
+  } catch (error) {
+  res.send(error.message)    
+  }
+}
+//Add a user to a tour
+exports.addAUser = async(req, res) => {
+  try {
+   
+  const tour = await Tour.findByPk(req.body.idTour);
+  const user = await User.findByPk(req.body.idUser);
 
+  console.log(tour)
+  console.log(user)
+  tour.addPlace(user)
+ 
+  res.send("success")
+  } catch (error) {
+  res.send(error.message)    
+  }
 }
 //Retrieve all Tours from the database
 exports.findAll = (req, res) => {

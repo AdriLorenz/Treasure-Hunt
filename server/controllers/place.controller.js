@@ -3,7 +3,6 @@ const Place = db.places;
 //const Place_Tour = db.place_tour;
 const Op = db.Sequelize.Op;
 
-<<<<<<< HEAD
 //Create and Save a new Place
 exports.create = async (req, res) => {
   if (!req.body.place_name) {
@@ -35,9 +34,6 @@ exports.create = async (req, res) => {
     });
 };
 //Retrieve all Places from the database
-=======
-// INDEX
->>>>>>> d9a50574f77c594363022d6633d8957119d5b6fa
 exports.findAll = (req, res) => {
   Place.findAll(
     {

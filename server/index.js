@@ -13,15 +13,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(flash());
 
-db.sequelize.sync({force:true}).then(() => {
+db.sequelize.sync().then(() => {
   console.log("Dropped an resync db");
 });
 
 require("./routes/award.routes")(app);
-require("./routes/award_user.routes")(app);
 require("./routes/category.routes")(app);
 require("./routes/place.routes")(app);
-require("./routes/place_tour.routes")(app);
 require("./routes/role.routes")(app);
 require("./routes/tour.routes")(app);
 require("./routes/type.routes")(app);

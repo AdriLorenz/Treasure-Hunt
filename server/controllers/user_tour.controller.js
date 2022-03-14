@@ -4,7 +4,7 @@ const Op = db.Sequelize.Op;
 
 //Create and Save a new User_Tour
 exports.create = (req, res) => {
-  if (!req.body.user_name) {
+  if (!req.body.userUserId) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -13,8 +13,9 @@ exports.create = (req, res) => {
   }
   //Create a User_Tour
   const user_tour = {
-    user_name: req.body.user_name,
-    tour_name: req.body.tour_name,
+    isLiked: req.body.isLiked,
+    userUserId: req.body.userUserId,
+    tourTourId: req.body.tourTourId
   };
 
   //Save User_Tour in the database

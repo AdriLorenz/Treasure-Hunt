@@ -7,6 +7,10 @@ module.exports = (app) => {
   router.get("/:tour_id", tours.findOne);
   // CREATE
   router.post("/", tours.create);
+  //Add a place
+  router.post("/tour_places", tours.addAPlace);
+  //Add a user
+  //router.post("/user_tour", tours.addAUser);
   // UPDATE
   router.put("/:tour_id", tours.update);
   // DESTROY
