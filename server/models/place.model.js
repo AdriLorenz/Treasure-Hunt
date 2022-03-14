@@ -21,6 +21,10 @@ module.exports = (sequelize, Sequelize) => {
       place_points: {
         type: Sequelize.STRING,
       },
+      place_location: {
+        type: Sequelize.STRING,
+      },
+
 
       type_id_fk: {
         type: Sequelize.INTEGER,
@@ -39,7 +43,7 @@ module.exports = (sequelize, Sequelize) => {
       foreignKey: "type_id_fk",
     });
     Place.belongsToMany(models.tours, {
-      through: "place_tour",
+      through: "tour_places",
       onDelete: "cascade",
     });
   };

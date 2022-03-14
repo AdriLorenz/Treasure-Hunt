@@ -1,7 +1,8 @@
 const db = require("../models");
 const Tour = db.tours;
+const Place = db.places;
 const Op = db.Sequelize.Op;
-const createTour = require("./place_tour.controller").create;
+//const createTour = require("./place_tour.controller").create;
 
 //Create and Save a new Tour
 exports.create = async (req, res) => {
@@ -24,7 +25,8 @@ exports.create = async (req, res) => {
   const tour = Tour.create({
     tour_name: req.body.tour_name,
     tour_description: req.body.tour_description,
-    tour_likes: req.body.tour_likes,
+    tour_starts: req.body.tour_starts,
+    tour_duration: req.body.tour_duration,
     category_id_fk: req.body.category_id_fk,
   })
 
@@ -37,6 +39,14 @@ exports.create = async (req, res) => {
       });
     });
 };
+
+exports.addAPlace = async(req, res) => {
+  const tour = await Tour.findByPk(req.idTour);
+  const place = await Place.findByPk(req.idPlace);
+
+  tour.addPlace(place)
+
+}
 //Retrieve all Tours from the database
 exports.findAll = (req, res) => {
   Tour.findAll()
@@ -53,7 +63,7 @@ exports.findAll = (req, res) => {
 //Find a single Tour with an id
 exports.findOne = (req, res) => {
   const id = req.params.tour_id;
-  Tour.findByPk(id)
+  Tour.findByPk(id, {include: db.places})
     .then((data) => {
       if (data) {
         res.send(data);

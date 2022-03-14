@@ -1,4 +1,4 @@
-const db = require("../models");
+/*const db = require("../models");
 const Award_User = db.award_user;
 const Op = db.Sequelize.Op;
 
@@ -12,7 +12,7 @@ exports.create = async (req, res) => {
   //   return;
   // }
 
-  //Create a Place
+  //Create a AwardUsers
   const award_user = {
     awardAwardId: req.body.awardAwardId,
     userUserId: req.body.userUserId,
@@ -42,3 +42,4 @@ exports.findAll = (req, res) => {
       });
     });
 };
+*/

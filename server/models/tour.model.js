@@ -18,7 +18,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
 
-      tour_likes: {
+      tour_starts: {
+        type: Sequelize.INTEGER,
+      },
+      tour_duration: {
         type: Sequelize.INTEGER,
       },
 
@@ -39,11 +42,11 @@ module.exports = (sequelize, Sequelize) => {
       foreignKey: "category_id_fk",
     });
     Tour.belongsToMany(models.places, {
-      through: "place_tour",
+      through: "tour_places",
       onDelete: "cascade",
     });
     Tour.belongsToMany(models.users, {
-      through: "user_tour",
+      through: models.user_tour,
       onDelete: "cascade",
     });
   };

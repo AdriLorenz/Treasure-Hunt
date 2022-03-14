@@ -28,7 +28,7 @@ module.exports = (sequelize, Sequelize) => {
   // Specify the relationship
   Award.associate = (models) => {
     Award.belongsToMany(models.users, {
-      through: "award_user",
+      through:"user_awards",
       onDelete: "cascade",
     });
   };

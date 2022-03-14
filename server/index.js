@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(flash());
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force:true}).then(() => {
   console.log("Dropped an resync db");
 });
 

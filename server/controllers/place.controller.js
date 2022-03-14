@@ -1,6 +1,6 @@
 const db = require("../models");
 const Place = db.places;
-const Place_Tour = db.place_tour;
+//const Place_Tour = db.place_tour;
 const Op = db.Sequelize.Op;
 
 //Create and Save a new Place
@@ -17,7 +17,9 @@ exports.create = async (req, res) => {
     place_name: req.body.place_name,
     place_description: req.body.place_description,
     place_points: req.body.place_points,
+    place_location: req.body.place_location,
     type_id_fk: req.body.type_id_fk,
+
   };
 
   //Save Place in the database
