@@ -1,4 +1,5 @@
 module.exports = (app) => {
+  console.log("routeasdfsdfasd")
   const users = require("../controllers/user.controller.js");
   var router = require("express").Router();
   // INDEX
@@ -11,6 +12,9 @@ module.exports = (app) => {
   router.put("/:user_id", users.update);
   // DESTROY
   router.delete("/:user_id", users.delete);
+//Add a tour
+
+  router.post("/addTour", users.addATour)
 
   app.use("/api/users", router);
 };

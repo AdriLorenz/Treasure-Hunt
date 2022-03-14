@@ -57,21 +57,21 @@ exports.addAPlace = async(req, res) => {
   }
 }
 //Add a user to a tour
-exports.addAUser = async(req, res) => {
+/*exports.addAUser = async(req, res) => {
   try {
    
   const tour = await Tour.findByPk(req.body.idTour);
   const user = await User.findByPk(req.body.idUser);
-
+  tour.addUser(user, {through : {isLiked: req.body.isLiked}})
   console.log(tour)
   console.log(user)
-  tour.addPlace(user)
+  
  
   res.send("success")
   } catch (error) {
   res.send(error.message)    
   }
-}
+}*/
 //Retrieve all Tours from the database
 exports.findAll = (req, res) => {
   Tour.findAll(
