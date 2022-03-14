@@ -2,16 +2,45 @@ const db = require("./models");
 const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
+const passportLocal = require("passport-local").Strategy;
+const cookieParser = require("cookie-parser");
 const flash = require("express-flash");
+const session = require("express-session");
+const bodyParser = require("body-parser");
+const initializePassport = require("./config/passport.config");
 
 const app = express();
 
 app.use(express.static("public"));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cors());
-app.use(flash());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(cookieParser("secretcode"));
+app.use(passport.initialize());
+app.use(passport.session());
+initializePassport(passport);
+console.log(session);
+
+app.post("/api/logout", (req, res) => {
+  req.logOut();
+  res.clearCookie("secretcode");
+  req.session.destroy((err) => res.redirect("/"));
+});
 
 db.sequelize.sync().then(() => {
   console.log("Dropped an resync db");
