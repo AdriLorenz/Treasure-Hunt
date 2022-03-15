@@ -5,6 +5,7 @@ const Op = db.Sequelize.Op;
 
 // INDEX
 exports.findAll = (req, res) => {
+  console.log("ljas;dfjsdfj")
   User.findAll(
     {
       include: [
@@ -140,3 +141,19 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+//Add a tour to a user
+exports.addATour = async (req, res) => {
+  try {
+    
+    const user = await User.findByPk(req.body.userId);
+
+    const tour = await db.tours.findByPk(req.body.tourId);
+
+    user.addTour(tour, {through : {isLiked: req.body.isLiked}})
+
+    res.send("Tour added successfully")
+  } catch (error) {
+    res.send(error.message)
+  }
+}

@@ -18,7 +18,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
       },
 
-      tour_starts: {
+      tour_likes: {
         type: Sequelize.INTEGER,
       },
 

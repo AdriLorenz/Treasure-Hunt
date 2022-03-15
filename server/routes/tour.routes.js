@@ -11,6 +11,10 @@ module.exports = (app) => {
   router.put("/:tour_id", tours.update);
   // DESTROY
   router.delete("/:tour_id", tours.delete);
+  //Add a place
+  router.post("/tour_places", tours.addAPlace);
+  //Add a user
+  //router.post("/user_tour", tours.addAUser);
 
   app.use("/api/tours", router);
 };

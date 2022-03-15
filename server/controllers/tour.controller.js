@@ -1,53 +1,11 @@
 const db = require("../models");
 const Tour = db.tours;
 const Place = db.places;
+const User = db.users;
 const Op = db.Sequelize.Op;
 //const createTour = require("./place_tour.controller").create;
 
-//Create and Save a new Tour
-exports.create = async (req, res) => {
-  if (!req.body.tour_name) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-
-    return;
-  }
-  //Create a Tour
-  // const tour = {
-  //   tour_name: req.body.tour_name,
-  //   tour_description: req.body.tour_description,
-  //   tour_likes: req.body.tour_likes,
-  //   category_id_fk: req.body.category_id_fk,
-  // };
-
-  //Save Tours in the database
-  const tour = Tour.create({
-    tour_name: req.body.tour_name,
-    tour_description: req.body.tour_description,
-    tour_starts: req.body.tour_starts,
-    tour_duration: req.body.tour_duration,
-    category_id_fk: req.body.category_id_fk,
-  })
-
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occured while creating the tour.",
-      });
-    });
-};
-
-exports.addAPlace = async(req, res) => {
-  const tour = await Tour.findByPk(req.idTour);
-  const place = await Place.findByPk(req.idPlace);
-
-  tour.addPlace(place)
-
-}
-//Retrieve all Tours from the database
+// INDEX
 exports.findAll = (req, res) => {
   Tour.findAll(
     {
@@ -192,3 +150,37 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+//Add a place to a tour
+exports.addAPlace = async(req, res) => {
+  try {
+   
+  const tour = await Tour.findByPk(req.body.idTour);
+  const place = await Place.findByPk(req.body.idPlace);
+
+  console.log(tour)
+  console.log(place)
+  tour.addPlace(place)
+ 
+  res.send("success")
+  } catch (error) {
+  res.send(error.message)    
+  }
+}
+
+//Add a user to a tour
+/*exports.addAUser = async(req, res) => {
+  try {
+   
+  const tour = await Tour.findByPk(req.body.idTour);
+  const user = await User.findByPk(req.body.idUser);
+  tour.addUser(user, {through : {isLiked: req.body.isLiked}})
+  console.log(tour)
+  console.log(user)
+  
+ 
+  res.send("success")
+  } catch (error) {
+  res.send(error.message)    
+  }
+}*/
