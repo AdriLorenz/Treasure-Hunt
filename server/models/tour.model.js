@@ -21,12 +21,9 @@ module.exports = (sequelize, Sequelize) => {
       tour_starts: {
         type: Sequelize.INTEGER,
       },
-      tour_duration: {
-        type: Sequelize.INTEGER,
-      },
 
       tour_duration: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
 
       category_id_fk: {

@@ -42,7 +42,7 @@ app.post("/api/logout", (req, res) => {
   req.session.destroy((err) => res.redirect("/"));
 });
 
-db.sequelize.sync({force:true}).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   console.log("Dropped an resync db");
 });
 

@@ -21,12 +21,12 @@ module.exports = (sequelize, Sequelize) => {
       place_points: {
         type: Sequelize.STRING,
       },
+
       place_location: {
         type: Sequelize.STRING,
       },
 
-
-      place_location: {
+      place_img_path: {
         type: Sequelize.STRING,
       },
 

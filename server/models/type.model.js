@@ -13,6 +13,7 @@ module.exports = (sequelize, Sequelize) => {
       type_name: {
         type: Sequelize.STRING,
       },
+
       type_description: {
         type: Sequelize.STRING,
       },
