@@ -142,7 +142,7 @@ exports.delete = (req, res) => {
     });
 };
 
-//Add a tour to a user
+// Add a tour to a user
 exports.addATour = async (req, res) => {
   try {
     

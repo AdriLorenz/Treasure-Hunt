@@ -1,6 +1,11 @@
 import React from "react";
 // Routing
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// Components
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import Homepage from "./components/Homepage";
+import Login from "./components/Login";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -11,8 +16,12 @@ function App() {
     <>
       <Router>
         <UserProvider>
-          <h1>Hola</h1>
-          <Routes></Routes>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          <NavBar />
           <GlobalStyle />
         </UserProvider>
       </Router>

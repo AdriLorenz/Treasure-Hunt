@@ -4,6 +4,11 @@ export const GlobalStyle = createGlobalStyle`
 
 :root {
   --maxWidth: 1280px;
+
+  --white: #fff;
+  --lightBlue: #a8f0f4;
+  --fadedBlue: #a2d5e3;
+  --darkBlue: #54b2cc;
 }
 
 * {
@@ -12,10 +17,9 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   margin: 0;
+  margin-top: 90px;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Fredoka';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
