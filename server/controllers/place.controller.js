@@ -2,6 +2,7 @@ const db = require("../models");
 const Place = db.places;
 //const Place_Tour = db.place_tour;
 const Op = db.Sequelize.Op;
+const fs = require("fs");
 
 // INDEX
 exports.findAll = (req, res) => {
@@ -56,6 +57,7 @@ exports.findOne = (req, res) => {
 
 // CREATE
 exports.create = async (req, res) => {
+  console.log("aaaaa");
   if (!req.body.place_name) {
     res.status(400).send({
       message: "Content can not be empty!",

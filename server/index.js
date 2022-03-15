@@ -13,8 +13,9 @@ const app = express();
 
 app.use(express.static("public"));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded({ extended: false })); //Parse URL-encoded bodies
+
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -42,11 +43,7 @@ app.post("/api/logout", (req, res) => {
   req.session.destroy((err) => res.redirect("/"));
 });
 
-<<<<<<< HEAD
-db.sequelize.sync({ force: true }).then(() => {
-=======
 db.sequelize.sync().then(() => {
->>>>>>> 3ff952c4667203183893526a06d69aee6feeb704
   console.log("Dropped an resync db");
 });
 

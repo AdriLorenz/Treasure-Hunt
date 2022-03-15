@@ -1,4 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
+  const multer = require("multer");
   // Define schema
   const Tour = sequelize.define(
     "tours",

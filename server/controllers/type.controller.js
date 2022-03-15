@@ -4,15 +4,13 @@ const Op = db.Sequelize.Op;
 
 // INDEX
 exports.findAll = (req, res) => {
-  Type.findAll(
-    {
-      include: [
-        {
-          model: db.places
-        }
-      ]
-    }
-  )
+  Type.findAll({
+    include: [
+      {
+        model: db.places,
+      },
+    ],
+  })
     .then((data) => {
       res.send(data);
     })
@@ -26,15 +24,13 @@ exports.findAll = (req, res) => {
 // SHOW
 exports.findOne = (req, res) => {
   const id = req.params.type_id;
-  Type.findByPk(id,
-    {
-      include: [
-        {
-          model: db.places
-        }
-      ]
-    }  
-  )
+  Type.findByPk(id, {
+    include: [
+      {
+        model: db.places,
+      },
+    ],
+  })
     .then((data) => {
       if (data) {
         res.send(data);
@@ -53,6 +49,7 @@ exports.findOne = (req, res) => {
 
 // CREATE
 exports.create = async (req, res) => {
+  console.log(req.body);
   if (!req.body.type_name) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -65,7 +62,6 @@ exports.create = async (req, res) => {
     type_name: req.body.type_name,
     type_description: req.body.type_description,
   };
-
 
   //Save type in the database
   Type.create(type)
