@@ -29,6 +29,9 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 * {
+  list-style: none;
+  text-decoration: none;
+  outline: none;
   box-sizing: border-box;
 }
 
