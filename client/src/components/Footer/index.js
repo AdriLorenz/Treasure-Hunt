@@ -2,7 +2,7 @@ import React from "react";
 // Images
 import AppLogo from "../../assets/images/RSVamos_Logo.png";
 //Styles
-import { Wrapper, LogoImg, Content, Image, Email, Phone, Location, SocialsIcons } from "./Footer.styles";
+import { Footer } from "./Footer.styles";
 
 import { useNavigate } from "react-router-dom";
 // Images
@@ -14,39 +14,39 @@ import FacebookIcon from "../../assets/images/RSVamos_FacebookIcon.svg";
 import TwitterIcon from "../../assets/images/RSVamos_TwitterIcon.svg";
 import InstagramIcon from "../../assets/images/RSVamos_InstagramIcon.svg";
 
-const Footer = () => {
+const FooterComp = () => {
     return (
-        <footer>
+        <Footer>
             <section>
-                <img src={AppLogo} alt="logo" />
+                <img className="footerLogo" src={AppLogo} alt="logo" />
             </section>
             <section>
                 <ul>
                     <li>
                         <img src={LocationPageIcon} alt="locationIcon" className="whiteIcon" />
-                        <p className="location"> Gran Canaria Street</p>
+                        <p> Gran Canaria Street</p>
                     </li>
                     <li>
-                        <img src={EmailIcon} alt="emailIcon" className="emailIcon" />
-                        <p className="email"> Vamos@hotmail.com</p>
+                        <img src={EmailIcon} alt="emailIcon" />
+                        <p> Vamos@hotmail.com</p>
                     </li>
                     <li>
-                        <img src={PhoneIcon} alt="phoneIcon" className="phoneIcon" />
-                        <p className="phone"> +34 69 69 69 696</p>
+                        <img src={PhoneIcon} alt="phoneIcon" />
+                        <p> +34 69 69 69 696</p>
                     </li>
                 </ul>
             </section>
-            <section>
+            <section className="socialIcons">
                 <img src={InstagramIcon} alt="instagramIcon" />
                 <img src={FacebookIcon} alt="facebookIcon" />
                 <img src={TwitterIcon} alt="twitterIcon" />
             </section>
 
 
-        </footer>
+        </Footer>
 
     )
 }
 
 
-export default Footer;
+export default FooterComp;
