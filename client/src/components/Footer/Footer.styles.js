@@ -21,7 +21,7 @@ export const LogoImg = styled.img`
   margin-left: 470px;
   width: 200px;
   cursor: pointer;
-  margin-bottom: 30px
+  margin-bottom: 30px;
    
 `
 
