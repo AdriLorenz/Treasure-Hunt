@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   .carousel{
     overflow: hidden;
+    position: relative;
   }
   .inner{
     white-space: nowrap;
@@ -11,30 +12,37 @@ export const Wrapper = styled.div`
   .indicators{
     display: flex;
     justify-content: center;
-    
+    position: absolute;
+    gap:3vw;
+    bottom:5vw;
+    left:50%;
+    transform: translateX(-50%);
   }
   .indicators > button {
     margin: 5px;
+    height: 5vw;
+    width: 5vw;
     border: 0;
     border-radius: 100%;
     color: var(--lightGrey);
     background-color: var(--lightGrey);
   }
   .indicators > button.active {
-    background-color: var(--greyText);
+    background-color: var(--lightBlue);
     color: var(--greyText);
   }
   
     
 `;
 
-export const gg = styled.div`
+export const GG = styled.div`
     #globalGoals{
         width: 100%;
         figure{
             display: flex;
             flex-direction: row;
             width: 100%;
+            margin: 0;
 
             img{
                 width: 50%;
@@ -42,21 +50,52 @@ export const gg = styled.div`
             figcaption{
                 height: 100%;
                 width: 100%;
-                background-color: darkBlue;
+                margin: 5%;
+                text-align: center;
             }
-            /* #goal3,#goal7,#goal11,#goal13,#goal16{
-            align: left;
-            width: 50%;
-    
-            }   
-            #goal5,#goal8,#goal12,#goal15,#goal17{
-                align: right;
-                width: 200px;
-            } */
+
+            #goal3{
+              color: var(--goal3);
+            }
+            
+            #goal7{
+              color: var(--goal7);
+            }
+            
+            #goal11{
+              color: var(--goal11);
+            }
+            
+            #goal13{
+              color: var(--goal13);
+            }
+            
+            #goal16{
+              color: var(--goal16);
+            }
+            #goal5{
+              color: var(--goal5);
+            }
+            
+            #goal8{
+              color: var(--goal8);
+            }
+            
+            #goal12{
+              color: var(--goal12);
+            }
+            
+            #goal15{
+              color: var(--goal15);
+            }
+            
+            #goal17{
+              color: var(--goal17);
+            }
         }
         
     }
-` 
+`
 
 export const Content = styled.div`
     display: flex;
@@ -64,8 +103,13 @@ export const Content = styled.div`
     flex-direction: column;
     padding: 0 6%;
 
+    h1 {
+        color: var(--greyText);
+    }
+
     p {
         font-size:20px;
+        color: var(--greyText);
     }
 
     #logo {
