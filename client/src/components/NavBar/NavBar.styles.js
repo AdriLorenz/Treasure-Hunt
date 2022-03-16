@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
   height: 100px;
   width: 100%;
   border-top: 3px solid var(--darkBlue);
-
   display: flex;
   justify-content: center;
   align-items: center;

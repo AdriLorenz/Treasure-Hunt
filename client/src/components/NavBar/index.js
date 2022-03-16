@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 // Images
-import HomePageIcon from "../../assets/images/RSVamos_HomePageIcon.svg";
-import LocationPageIcon from "../../assets/images/RSVamos_LocationPageIcon.svg";
-import LeaderBoardPageIcon from "../../assets/images/RSVamos_LeaderBoardPageIcon.svg";
-import ProfilePageIcon from "../../assets/images/RSVamos_ProfilePageIcon.svg";
+import HomePageIcon from "../../assets/icons/RSVamos_HomePageIcon.svg";
+import LocationPageIcon from "../../assets/icons/RSVamos_LocationPageIcon.svg";
+import LeaderBoardPageIcon from "../../assets/icons/RSVamos_LeaderBoardPageIcon.svg";
+import ProfilePageIcon from "../../assets/icons/RSVamos_ProfilePageIcon.svg";
 // Styles
 import { Wrapper, Content, Image } from "./NavBar.styles";
 

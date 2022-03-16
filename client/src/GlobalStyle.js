@@ -37,11 +37,16 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   margin: 0;
-  margin-top: 90px;
+  //margin-top: 90px;
   padding: 0;
   font-family: 'Fredoka';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (max-width: 500px) {
+    //margin-top: 60px;
+  }
+
 }
 
 `
