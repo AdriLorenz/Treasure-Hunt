@@ -1,84 +1,81 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  background: var(--darkBlue);
-  height: 700px;
-  width: 100%;
- 
-  
+export const Footer = styled.footer`
+background-color: var(--darkBlue);
+width: 100vw;
+display: flex;
+flex-direction: column;
+justify-content:space-evenly;
 
-  
+*{
+  padding:0;
+  margin:0;
+}
 
-`
-export const Content = styled.div`
-  width: 100%;
-  justify-content: center;
-  
-
-`
-export const LogoImg = styled.img`
-  padding-top: 50px;
-  margin-left: 470px;
-  width: 200px;
-  cursor: pointer;
-  margin-bottom: 30px;
-   
-`
+section{
+display: flex;
+flex-direction: row;
+justify-content:center;
 
 
+  .footerLogo{
+    width:35vw;
+    padding: 10vw 0 5vw 
+  }
 
-export const Image = styled.img`
-  width: 50px;
-  height: 60px;
- 
-
-`
-export const Location  = styled.div`
+  ul{
+    height:auto;
+    padding:0;
+    width:100%;
     display: flex;
-    margin-left: 480px;
-    .whiteIcon {
-        filter: brightness(0) invert(1);
-        width: 30px;
-        height: 40px;
+    flex-direction: column;
+    justify-content:center;
+
+    li{
+      width:100%;
+      height:12vw;
+      display: flex;
+      flex-direction: row;
+      justify-content:center;
+      gap:1.5vw;
+      position: relative;
+
+        img{
+          top: 50%;
+          transform: translateY(20%);
+
+          height:7vw;
       }
-    .location{
-        color: white;
-    }
-    
-   
+      p{
+        margin:0;
+        line-height:1.5;
+        font-size:1.5em;
+         color: white;
 
-`
-export const Email = styled.div`
-    display: flex;
-    margin-left: 480px;
-    
-    .emailIcon{
-        width: 30px;
-        height: 40px;
+         font-weight: bold;     
+         }
+      .whiteIcon{
+        filter: brightness(0) invert(1);
+      }
     }
-    .email{
-        color:white;
-    }
-   
-    
-`
-export const Phone  = styled.div`
-    display: flex;
-    margin-left: 485px;
+  }
+  
 
-    .phoneIcon{
-        width: 30px;
-        height: 40px;
-    }
-    .phone{
-        color:white;
-    }
-   
-    
+}
+.socialIcons{
+        display: flex;
+        flex-direction: row;
+      
+        gap: 10vw;
+        img{
+           width: 15vw;
+           padding: 5vw 0 30vw;
+           filter: brightness(0) invert(1);
 
+           
+        }
+  }
 `
-export const SocialsIcons  = styled.div`
-    margin-left: 485px;
-    margin-top: 40px;
-   padding-right: 10px;
-`
+
+
+
