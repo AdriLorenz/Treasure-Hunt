@@ -1,8 +1,9 @@
 module.exports = (app) => {
-  const images = require("../upload/upload");
   const places = require("../controllers/place.controller.js");
-  const multer = require("multer");
   var router = require("express").Router();
+  const images = require("../upload/upload");
+  const auth = require("../controllers/auth.controller");
+
   // INDEX
   router.get("/", places.findAll);
   // SHOW
@@ -10,7 +11,7 @@ module.exports = (app) => {
   // CREATE
   router.post("/", images.upload.single("fileName"), places.create);
   // UPDATE
-  router.put("/:place_id", places.update);
+  router.put("/:place_id", images.upload.single("fileName"), places.update);
   // DESTROY
   router.delete("/:place_id", places.delete);
 

@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
     "users",
     {
       // Define attributes
-       user_id: {
+      user_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -27,6 +27,10 @@ module.exports = (sequelize, Sequelize) => {
         defaultValue: 0,
       },
 
+      user_img_path: {
+        type: Sequelize.STRING,
+      },
+
       role_id_fk: {
         type: Sequelize.INTEGER,
         defaultValue: 1,
@@ -44,15 +48,14 @@ module.exports = (sequelize, Sequelize) => {
     User.belongsTo(models.roles, {
       foreignKey: "role_id_fk",
     });
-    
+
     User.belongsToMany(models.tours, {
       through: models.user_tour,
     });
-     
+
     User.belongsToMany(models.awards, {
       onDelete: "cascade",
-      through:"user_awards"
-     
+      through: "user_awards",
     });
   };
 

@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
     }  
     #profileIcon{
         height: 90px;
-        margin-top: 30%;
-
+        margin-top: 20%;
+        margin-left: 40%;
         
     }
 

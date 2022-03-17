@@ -2,6 +2,8 @@ const db = require("../models");
 const Type = db.types;
 const Op = db.Sequelize.Op;
 
+const typeImagesDir = "\\images\\";
+
 // INDEX
 exports.findAll = (req, res) => {
   Type.findAll({
@@ -49,7 +51,8 @@ exports.findOne = (req, res) => {
 
 // CREATE
 exports.create = async (req, res) => {
-  console.log(req.body);
+  var type = "";
+
   if (!req.body.type_name) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -58,13 +61,23 @@ exports.create = async (req, res) => {
     return;
   }
   //Create a type
-  const type = {
-    type_name: req.body.type_name,
-    type_description: req.body.type_description,
-  };
+  if (req.file) {
+    type = {
+      type_name: req.body.type_name,
+      type_description: req.body.type_description,
+      type_img_path:
+        typeImagesDir + req.file.filename || req.body.type_img_path,
+    };
+  } else {
+    type = {
+      type_name: req.body.type_name,
+      type_description: req.body.type_description,
+      type_img_path: "",
+    };
+  }
 
   //Save type in the database
-  Type.create(type)
+  await Type.create(type)
     .then((data) => {
       res.send(data);
     })
@@ -100,9 +113,21 @@ exports.update = (req, res) => {
 };
 
 // DESTROY
-exports.delete = (req, res) => {
+exports.delete = async (req, res) => {
   const id = req.params.type_id;
-  Type.destroy({
+
+  const type = await Type.findOne({
+    where: { type_id: id },
+  });
+
+  fs.unlink("./public" + type.type_img_path, (err) => {
+    if (err !== null) {
+      res.status(500).send(err.message);
+      return;
+    }
+  });
+
+  await Type.destroy({
     where: { type_id: id },
   })
     .then((num) => {

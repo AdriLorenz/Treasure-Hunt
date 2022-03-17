@@ -1,6 +1,8 @@
 module.exports = (app) => {
   const tours = require("../controllers/tour.controller.js");
   var router = require("express").Router();
+  const auth = require("../controllers/auth.controller");
+
   // INDEX
   router.get("/", tours.findAll);
   // SHOW

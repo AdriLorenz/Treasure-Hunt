@@ -3,6 +3,8 @@ const User = db.users;
 const bcrypt = require("bcrypt");
 const Op = db.Sequelize.Op;
 
+const userImagesDir = "\\images\\";
+
 // INDEX
 exports.findAll = (req, res) => {
   User.findAll(
@@ -68,6 +70,7 @@ exports.findOne = (req, res) => {
 // CREATE
 exports.create = async (req, res) => {
   try {
+    var user = "";
     const hashedPassword = await bcrypt.hash(req.body.user_password, 3);
 
     const userWithSameEmail = await User.findOne({
@@ -77,12 +80,25 @@ exports.create = async (req, res) => {
     if (userWithSameEmail) {
       return res.send("Email already used !");
     } else {
-      const user = await User.create({
-        user_name: req.body.user_name,
-        user_email: req.body.user_email,
-        user_password: hashedPassword,
-        role_id_fk: req.body.role_id_fk,
-      });
+      if (req.file) {
+        user = {
+          user_name: req.body.user_name,
+          user_email: req.body.user_email,
+          user_password: hashedPassword,
+          user_img_path:
+            userImagesDir + req.file.filename || req.body.user_img_path || "",
+          role_id_fk: req.body.role_id_fk,
+        };
+      } else {
+        user = {
+          user_name: req.body.user_name,
+          user_email: req.body.user_email,
+          user_password: hashedPassword,
+          user_img_path: "",
+          role_id_fk: req.body.role_id_fk,
+        };
+      }
+      await User.create(user);
 
       res.json({
         message: "User Created",
@@ -98,6 +114,7 @@ exports.update = (req, res) => {
   const id = req.params.user_id;
   User.update(req.body, {
     where: { user_id: id },
+    user_img_path: userImagesDir + req.file.filename,
   })
     .then((num) => {
       if (num == 1) {
@@ -118,9 +135,21 @@ exports.update = (req, res) => {
 };
 
 // DESTROY
-exports.delete = (req, res) => {
+exports.delete = async (req, res) => {
   const id = req.params.user_id;
-  User.destroy({
+
+  const user = await User.findOne({
+    where: { user_id: id },
+  });
+
+  fs.unlink("./public" + user.user_img_path, (err) => {
+    if (err !== null) {
+      res.status(500).send(err.message);
+      return;
+    }
+  });
+
+  await User.destroy({
     where: { user_id: id },
   })
     .then((num) => {
@@ -144,15 +173,14 @@ exports.delete = (req, res) => {
 // Add a tour to a user
 exports.addATour = async (req, res) => {
   try {
-    
     const user = await User.findByPk(req.body.userId);
 
     const tour = await db.tours.findByPk(req.body.tourId);
 
-    user.addTour(tour, {through : {isLiked: req.body.isLiked}})
+    user.addTour(tour, { through: { isLiked: req.body.isLiked } });
 
-    res.send("Tour added successfully")
+    res.send("Tour added successfully");
   } catch (error) {
-    res.send(error.message)
+    res.send(error.message);
   }
-}
+};

@@ -4,6 +4,8 @@ const Place = db.places;
 const Op = db.Sequelize.Op;
 const fs = require("fs");
 
+const placeImagesDir = "\\images\\";
+
 // INDEX
 exports.findAll = (req, res) => {
   Place.findAll({
@@ -57,7 +59,7 @@ exports.findOne = (req, res) => {
 
 // CREATE
 exports.create = async (req, res) => {
-  console.log("aaaaa");
+  var place = "";
   if (!req.body.place_name) {
     res.status(400).send({
       message: "Content can not be empty!",
@@ -66,17 +68,29 @@ exports.create = async (req, res) => {
     return;
   }
   //Create a Place
-  const place = {
-    place_name: req.body.place_name,
-    place_description: req.body.place_description,
-    place_points: req.body.place_points,
-    place_location: req.body.place_location,
-    place_img_path: req.file.filename || req.body.theme_img_path,
-    type_id_fk: req.body.type_id_fk,
-  };
+  if (req.file) {
+    place = {
+      place_name: req.body.place_name,
+      place_description: req.body.place_description,
+      place_points: req.body.place_points,
+      place_location: req.body.place_location,
+      place_img_path:
+        placeImagesDir + req.file.filename || req.body.place_img_path,
+      type_id_fk: req.body.type_id_fk,
+    };
+  } else {
+    place = {
+      place_name: req.body.place_name,
+      place_description: req.body.place_description,
+      place_points: req.body.place_points,
+      place_location: req.body.place_location,
+      place_img_path: "",
+      type_id_fk: req.body.type_id_fk,
+    };
+  }
 
   //Save Place in the database
-  const createdPlace = Place.create(place)
+  await Place.create(place)
     .then((data) => {
       res.send(data);
     })
@@ -90,8 +104,16 @@ exports.create = async (req, res) => {
 // UPDATE
 exports.update = (req, res) => {
   const id = req.params.place_id;
+
+  if (req.body.place_img_path)
+    fs.unlink(req.body.place_img_path, (err) => {
+      res.status(500).send(err.message);
+      return;
+    });
+
   Place.update(req.body, {
     where: { place_id: id },
+    place_img_path: placeImagesDir + req.file.filename,
   })
     .then((num) => {
       if (num == 1) {
@@ -112,9 +134,21 @@ exports.update = (req, res) => {
 };
 
 // DESTROY
-exports.delete = (req, res) => {
+exports.delete = async (req, res) => {
   const id = req.params.place_id;
-  Place.destroy({
+
+  const place = await Place.findOne({
+    where: { place_id: id },
+  });
+
+  fs.unlink("./public" + place.place_img_path, (err) => {
+    if (err !== null) {
+      res.status(500).send(err.message);
+      return;
+    }
+  });
+
+  await Place.destroy({
     where: { place_id: id },
   })
     .then((num) => {

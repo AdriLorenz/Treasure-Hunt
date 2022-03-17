@@ -16,6 +16,7 @@ const Settings = () => {
             <div>
                 <img src={Profile} alt="Not-Found" id="profileIcon" />
             </div>
+            <h1></h1>
 
 
         </Wrapper>
