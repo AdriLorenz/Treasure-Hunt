@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 // import { useSwipeable } from "react-swipeable";
 // Components
 import Footer from "./Footer";
@@ -23,7 +23,7 @@ import Goal16 from "../assets/images/illustrations/16.png";
 import Goal17 from "../assets/images/illustrations/17.png";
 
 // Styles
-import { Wrapper, Content, CarouselItem, gg } from "./Homepage.styles";
+import { Wrapper, Content, CarouselItem, GG } from "./Homepage.styles";
 
 const Carousel = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -51,7 +51,7 @@ const Carousel = ({ children }) => {
                         <button className={`${index === activeIndex ? "active" : ""}`} onClick={() => {
                             updateIndex(index);
                         }}>
-                            {index + 1}
+                            
                         </button>
 
                     );
@@ -64,80 +64,85 @@ const Carousel = ({ children }) => {
 const Homepage = () => {
     return (
         <>
+            <Wrapper>
+                <Carousel>
+                    <CarouselItem image={PeopleBeach} />
+                    <CarouselItem image={PeopleCinema} />
+                    <CarouselItem image={PeopleTalking} />
+                </Carousel>
+                <Content>
+                    <br></br>
+                    <h1>What is this?</h1>
+                    <p>Are you interested on meeting new people? Or just going somewhere with friends?</p>
+                    <p><b>Join our app!</b></p>
+                    <br></br>
+                    <div>
+                        <img src={Logo} alt="Not-Found" id="logo" />
+                    </div>
+                    <p>Welcome! Our app consists on meeting people and go together to places in
+                        Gran Canaria. You will see routes you can select with places to go and earn points
+                        that you can use as discounts in other routes you want to do.
+                    </p>
+                    <div>
+                        <img src={GGLogo} alt="Not-Found" id="gglogo" />
+                    </div>
+                    <p>The Global Goals are a set of 17 commitments made by 193 world leaders,
+                        to end extreme poverty, inequality, and climate change by 2030.
+                    </p>
+                    <p>
+                        The global goals we use in our app are:
+                    </p>
+                    <br></br>
 
-
-        <Wrapper>
-            <Carousel>
-                <CarouselItem image={PeopleBeach} />
-                <CarouselItem image={PeopleCinema} />
-                <CarouselItem image={PeopleTalking} />
-            </Carousel>
-            <Content>
-                <br></br>
-                <h1>What is this?</h1>
-                <p>Are you interested on meeting new people? Or just going somewhere with friends?</p>
-                <p><b>Join our app!</b></p>
-                <br></br>
-                <div>
-                    <img src={Logo} alt="Not-Found" id="logo" />
-                </div>
-                <p>Welcome! Our app consists on meeting people and go together to places in
-                    Gran Canaria. You will see routes you can select with places to go and earn points
-                    that you can use as discounts in other routes you want to do.
-                </p>
-                <div>
-                    <img src={GGLogo} alt="Not-Found" id="gglogo" />
-                </div>
-                <p>The Global Goals are a set of 17 commitments made by 193 world leaders,
-                    to end extreme poverty, inequality, and climate change by 2030.
-                </p>
-                <p>
-                    The global goals we use in our app are:
-                </p>
-
-            </Content>
+                </Content>
             </Wrapper>
 
-            <gg></gg>
-            <section id="globalGoals">
-                <figure>
-                    <img src={Goal3} alt="Not-Found" id="goal3" />
-                    <figcaption><p>a</p></figcaption>
-                </figure>
-                <figure>
-                    <figcaption><p>and</p></figcaption>
-                    <img src={Goal7} alt="Not-Found" id="goal7" />
-                </figure>
-                <figure>
-                    <img src={Goal8} alt="Not-Found" id="goal8" />
-                    <figcaption><p>a</p></figcaption>
-                </figure>
-                <figure>
-                    <figcaption><p>a</p></figcaption>
-                    <img src={Goal11} alt="Not-Found" id="goal11" />
-                </figure>
-                <figure>
-                    <img src={Goal12} alt="Not-Found" id="goal12" />
-                    <figcaption><p>a</p></figcaption>
-                </figure>
-                <figure>
-                    <figcaption><p>app</p></figcaption>
-                    <img src={Goal13} alt="Not-Found" id="goal13" />
-                </figure>
-                <figure>
-                    <img src={Goal15} alt="Not-Found" id="goal15" />
-                    <figcaption><p>a</p></figcaption>
-                </figure>
-                <figure>
-                    <figcaption><p>a</p></figcaption>
-                    <img src={Goal16} alt="Not-Found" id="goal16" />
-                </figure>
-                <figure>
-                    <img src={Goal17} alt="Not-Found" id="goal17" />
-                    <figcaption><p>a</p></figcaption>
-                </figure>
+            <GG>
+                <section id="globalGoals">
+                    <figure>
+                        <img src={Goal3} alt="Not-Found"  />
+                        <figcaption id="goal3"><p>Ensure healthy lives and promote well-being for all at all ages</p></figcaption>
+                    </figure>
+                    <figure>
+                        <figcaption id="goal5"><p>Achieve gender equality and empower all women and girls</p></figcaption>
+                        <img src={Goal5} alt="Not-Found"  />
+                    </figure>
+                    <figure>
+                        <img src={Goal7} alt="Not-Found"  />
+                        <figcaption id="goal7"><p>Ensure access to affordable, reliable, sustainable and modern energy for all</p></figcaption>
+                    </figure>
+                    <figure>
+                        <figcaption id="goal8"><p>Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all</p></figcaption>
+                        <img src={Goal8} alt="Not-Found"  />
+                    </figure>
+                    <figure>
+                        <img src={Goal11} alt="Not-Found"  />
+                        <figcaption id="goal11"><p>Make cities and human settlements inclusive, safe, resilient and sustainable</p></figcaption>
+                    </figure>
+                    <figure>
+                        <figcaption id="goal12"><p>Ensure sustainable consumption and production patterns</p></figcaption>
+                        <img src={Goal12} alt="Not-Found"  />
+                    </figure>
+                    <figure>
+                        <img src={Goal13} alt="Not-Found"  />
+                        <figcaption id="goal13"><p>Take urgent action to combat climate change and its impacts</p></figcaption>
+                    </figure>
+                    <figure>
+                        <figcaption id="goal15"><p>Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests and combat desertification</p></figcaption>
+                        <img src={Goal15} alt="Not-Found"  />
+                    </figure>
+                    <figure>
+                        <img src={Goal16} alt="Not-Found"  />
+                        <figcaption id="goal16"><p>Promote peaceful and inclusive societies for sustainable development</p></figcaption>
+                    </figure>
+                    <figure>
+                        <figcaption id="goal17"><p>Strengthen the means of implementation and revitalize the global partnership for sustainable development</p></figcaption>
+                        <img src={Goal17} alt="Not-Found"  />
+                    </figure>
 
-            </section>
+                </section>
+
+            </GG>
 
 
 

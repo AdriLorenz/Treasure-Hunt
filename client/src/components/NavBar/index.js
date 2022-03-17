@@ -68,8 +68,12 @@ const NavBar = () => {
         <Link to="/">
           <Image src={HomePageIcon} alt="HomePage" className={home ? "normal" : "whiteIcon"} />
         </Link>
-        <Image src={LocationPageIcon} alt="LocationPage" className={location ? "normal" : "whiteIcon"} />
-        <Image src={LeaderBoardPageIcon} alt="LeaderBoardPage" className={leaderBoard ? "normal" : "whiteIcon"} />
+        <Link to="/location">
+          <Image src={LocationPageIcon} alt="LocationPage" className={location ? "normal" : "whiteIcon"} />
+        </Link>
+        <Link to="/leaderboard">
+          <Image src={LeaderBoardPageIcon} alt="LeaderBoardPage" className={leaderBoard ? "normal" : "whiteIcon"} />
+        </Link>
         <Link to="/login">
           <Image src={ProfilePageIcon} alt="ProfilePage" className={profile ? "normal" : "whiteIcon"} />
         </Link>
