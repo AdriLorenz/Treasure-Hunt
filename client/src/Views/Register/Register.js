@@ -176,6 +176,11 @@ const Register = () => {
             </SubmitButton>
           </>
         )}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
       </Wrapper>
     </>
   )

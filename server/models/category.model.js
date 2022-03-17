@@ -10,10 +10,16 @@ module.exports = (sequelize, Sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
+
       category_name: {
         type: Sequelize.STRING,
       },
+
       category_description: {
+        type: Sequelize.STRING,
+      },
+
+      category_img_path: {
         type: Sequelize.STRING,
       },
     },

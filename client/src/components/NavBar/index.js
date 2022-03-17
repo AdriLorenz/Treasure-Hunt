@@ -24,7 +24,7 @@ const NavBar = () => {
         setLeaderBoard(false);
         setProfile(false);
         break;
-      
+
       case "location":
         setHome(false);
         setLocation(true);
@@ -88,9 +88,16 @@ const NavBar = () => {
         <Link to="/leaderboard">
           <Image src={LeaderBoardPageIcon} alt="LeaderBoardPage" className={leaderBoard ? "normal" : "whiteIcon"} />
         </Link>
-        <Link to="/login">
-          <Image src={ProfilePageIcon} alt="ProfilePage" className={profile ? "normal" : "whiteIcon"} />
-        </Link>
+        {localStorage.userEmail ? (
+          <Link to="/profile">
+            <Image src={ProfilePageIcon} alt="ProfilePage" className={profile ? "normal" : "whiteIcon"} />
+          </Link>
+        ) : (
+          <Link to="/login">
+            <Image src={ProfilePageIcon} alt="ProfilePage" className={profile ? "normal" : "whiteIcon"} />
+          </Link>
+        )}
+
       </Content>
     </Wrapper>
   )

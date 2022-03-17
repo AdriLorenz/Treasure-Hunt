@@ -1,6 +1,8 @@
 module.exports = (app) => {
   const awards = require("../controllers/award.controller.js");
   var router = require("express").Router();
+  const auth = require("../controllers/auth.controller");
+
   // INDEX
   router.get("/", awards.findAll);
   // SHOW
