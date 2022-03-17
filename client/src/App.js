@@ -10,6 +10,7 @@ import LeaderBoard from "./Views/LeaderBoard/LeaderBoard";
 import Login from "./Views/Login/Login";
 import Register from "./Views/Register/Register";
 import Settings from "./Views/Settings/Settings";
+import Profile from "./Views/Profile/Profile";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -28,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
           <NavBar />
           <GlobalStyle />

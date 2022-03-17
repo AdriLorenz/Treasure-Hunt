@@ -4,7 +4,7 @@ module.exports = (app) => {
   // INDEX
   router.get("/", users.findAll);
   // SHOW
-  router.get("/:user_id", users.findOne);
+  router.get("/:user_email", users.findOne);
   // CREATE
   router.post("/", users.create);
   // UPDATE

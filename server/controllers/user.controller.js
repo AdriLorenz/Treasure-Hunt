@@ -5,7 +5,6 @@ const Op = db.Sequelize.Op;
 
 // INDEX
 exports.findAll = (req, res) => {
-  console.log("ljas;dfjsdfj")
   User.findAll(
     {
       include: [
@@ -34,8 +33,8 @@ exports.findAll = (req, res) => {
 
 // SHOW
 exports.findOne = (req, res) => {
-  const id = req.params.user_id;
-  User.findByPk(id,
+  const email = req.params.user_email;
+  User.findAll({where: {user_email: email}},
     {
       include: [
         {
