@@ -17,6 +17,10 @@ module.exports = (sequelize, Sequelize) => {
       type_description: {
         type: Sequelize.STRING,
       },
+
+      type_img_path: {
+        type: Sequelize.STRING,
+      },
     },
     {
       // Freeze Table Name, turn of timestamps fields
