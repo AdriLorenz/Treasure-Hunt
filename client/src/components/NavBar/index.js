@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 // Images
-import HomePageIcon from "../../assets/images/RSVamos_HomePageIcon.svg";
-import LocationPageIcon from "../../assets/images/RSVamos_LocationPageIcon.svg";
-import LeaderBoardPageIcon from "../../assets/images/RSVamos_LeaderBoardPageIcon.svg";
-import ProfilePageIcon from "../../assets/images/RSVamos_ProfilePageIcon.svg";
+import HomePageIcon from "../../assets/icons/RSVamos_HomePageIcon.svg";
+import LocationPageIcon from "../../assets/icons/RSVamos_LocationPageIcon.svg";
+import LeaderBoardPageIcon from "../../assets/icons/RSVamos_LeaderBoardPageIcon.svg";
+import ProfilePageIcon from "../../assets/icons/RSVamos_ProfilePageIcon.svg";
 // Styles
 import { Wrapper, Content, Image } from "./NavBar.styles";
 
@@ -53,6 +53,20 @@ const NavBar = () => {
         setProfile(true);
         break;
 
+      case "register":
+        setHome(false);
+        setLocation(false);
+        setLeaderBoard(false);
+        setProfile(true);
+        break;
+
+      case "settings":
+        setHome(false);
+        setLocation(false);
+        setLeaderBoard(false);
+        setProfile(true);
+        break;
+
       default:
         break;
     }
@@ -68,8 +82,12 @@ const NavBar = () => {
         <Link to="/">
           <Image src={HomePageIcon} alt="HomePage" className={home ? "normal" : "whiteIcon"} />
         </Link>
-        <Image src={LocationPageIcon} alt="LocationPage" className={location ? "normal" : "whiteIcon"} />
-        <Image src={LeaderBoardPageIcon} alt="LeaderBoardPage" className={leaderBoard ? "normal" : "whiteIcon"} />
+        <Link to="/location">
+          <Image src={LocationPageIcon} alt="LocationPage" className={location ? "normal" : "whiteIcon"} />
+        </Link>
+        <Link to="/leaderboard">
+          <Image src={LeaderBoardPageIcon} alt="LeaderBoardPage" className={leaderBoard ? "normal" : "whiteIcon"} />
+        </Link>
         <Link to="/login">
           <Image src={ProfilePageIcon} alt="ProfilePage" className={profile ? "normal" : "whiteIcon"} />
         </Link>

@@ -1,49 +1,49 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 // Images
-import AppLogo from "../../assets/images/RSVamos_Logo.png";
+import AppLogo from "../../assets/icons/RSVamos_Logo.png";
+import LocationPageIcon from "../../assets/icons/RSVamos_LocationPageIcon.svg";
+import EmailIcon from "../../assets/icons/RSVamos_EmailIcon.svg";
+import PhoneIcon from "../../assets/icons/RSVamos_PhoneIcon.svg";
+import FacebookIcon from "../../assets/icons/RSVamos_FacebookIcon.svg";
+import TwitterIcon from "../../assets/icons/RSVamos_TwitterIcon.svg";
+import InstagramIcon from "../../assets/icons/RSVamos_InstagramIcon.svg";
 //Styles
-import { Wrapper, LogoImg, Content, Image , Email, Phone, Location, SocialsIcons} from "./Footer.styles";
+import { Footer } from "./Footer.styles";
 
-import {useNavigate} from "react-router-dom";
-// Images
-
-import LocationPageIcon from "../../assets/images/RSVamos_LocationPageIcon.svg";
-import EmailIcon from "../../assets/images/RSVamos_EmailIcon.svg";
-import PhoneIcon from "../../assets/images/RSVamos_PhoneIcon.svg";
-import FacebookIcon from "../../assets/images/RSVamos_FacebookIcon.svg";
-import TwitterIcon from "../../assets/images/RSVamos_TwitterIcon.svg";
-import InstagramIcon from "../../assets/images/RSVamos_InstagramIcon.svg";
-
-const Footer = () =>{
-      return(
-          <Wrapper>
-               <Content>
-                   <LogoImg src={AppLogo} alt='app-logo'/>
-                   <Location>
-                        <img src={LocationPageIcon} alt="locationIcon" className="whiteIcon"/>
-                        <p className="location"> Gran Canaria Street</p>
-                    </Location>
-                    <Email>
-                       <img src={EmailIcon} alt="emailIcon" className="emailIcon"/>
-                       <p className="email"> Vamos@hotmail.com</p>
-                    </Email>
-                    <Phone>
-                       <img src={PhoneIcon} alt="phoneIcon" className="phoneIcon"/> 
-                       <p className="phone"> +34 69 69 69 696</p>
-                    </Phone>
-                    <SocialsIcons>
-                        <Image src={FacebookIcon} alt="facebookIcon"/>
-                        <Image src={TwitterIcon} alt="twitterIcon"/>
-                        <Image src={InstagramIcon} alt="instagramIcon"/>  
-                    </SocialsIcons>
+const FooterComp = () => {
+    return (
+        <Footer>
+            <section>
+                <img className="footerLogo" src={AppLogo} alt="logo" />
+            </section>
+            <section>
+                <ul>
+                    <li>
+                        <img src={LocationPageIcon} alt="locationIcon" className="whiteIcon" />
+                        <p> Gran Canaria Street</p>
+                    </li>
+                    <li>
+                        <img src={EmailIcon} alt="emailIcon" />
+                        <p> Vamos@hotmail.com</p>
+                    </li>
+                    <li>
+                        <img src={PhoneIcon} alt="phoneIcon" />
+                        <p> +34 69 69 69 696</p>
+                    </li>
+                </ul>
+            </section>
+            <section className="socialIcons">
+                <img src={InstagramIcon} alt="instagramIcon" />
+                <img src={FacebookIcon} alt="facebookIcon" />
+                <img src={TwitterIcon} alt="twitterIcon" />
+            </section>
 
 
+        </Footer>
 
-               </Content>
-               
-          </Wrapper>
-      )
+    )
 }
 
 
-export default Footer;
+export default FooterComp;
