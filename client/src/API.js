@@ -145,6 +145,10 @@ const apiSettings = {
   deleteUser: async userId => {
     const endpoint = `${USERS}/${userId}`;
     return await (await axios.delete(endpoint));
+  },
+  login: async body => {
+    const endpoint = `${API_URL}/login`;
+    return await (await axios.post(endpoint, body));
   }
 }
 

@@ -1,6 +1,17 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  animation: animateWrapper 0.5s;
+
+  @keyframes animateWrapper {
+    from {
+      opacity: 0;
+
+    } to {
+      opacity: 1;
+
+    }
+  }
   .carousel{
     overflow: hidden;
     position: relative;

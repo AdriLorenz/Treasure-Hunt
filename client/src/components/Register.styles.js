@@ -17,16 +17,14 @@ export const Wrapper = styled.div`
   }
 
   h1 {
-    margin-top: 40px;
+    margin-top: 30px;
     color: var(--darkBlue);
   }
 
-  p {
-    color: var(--greyText);
-  }
+  
 
   input {
-    margin: 5%;
+    width: 90%;
     border: 0;
     border-bottom: 3px solid var(--darkBlue);
     font-size: 1.5rem;
@@ -37,28 +35,41 @@ export const Wrapper = styled.div`
     ::placeholder {
       color: var(--dirtyBlue);
     }
-
   }
 
-  #settingsIcon {
+  .inputRequired {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0 5% 0;
+
+    p {
+      position: absolute;
+      right: 7%;
+      margin: 0;
+      color: var(--darkBlue);
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+  }
+
+  .imageUpload>input {
+    display: none;
+  }
+
+  #backIcon {
     position: absolute;
-    right: 1.5%;
-    width: 15%;
-    align: right;
+    right: 41%;
+    top: 10%;
+    width: 95%;
+    align: left;
     margin: 3%;
+    height: 25px;
+  }
+
+  #imageIcon {
+    position: absolute;
+    left: 5%;
     height: 40px;
-  }  
-    
-`;
-
-export const RegisterText = styled.div`
-  display: flex;
-  text-align: center;
-  margin: 0 5% 0 5%;
-
-  a {
-    color: var(--darkBlue);
-    font-weight: bold;
   }
 
 `

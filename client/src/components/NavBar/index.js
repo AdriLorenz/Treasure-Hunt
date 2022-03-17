@@ -53,6 +53,20 @@ const NavBar = () => {
         setProfile(true);
         break;
 
+      case "register":
+        setHome(false);
+        setLocation(false);
+        setLeaderBoard(false);
+        setProfile(true);
+        break;
+
+      case "settings":
+        setHome(false);
+        setLocation(false);
+        setLeaderBoard(false);
+        setProfile(true);
+        break;
+
       default:
         break;
     }
