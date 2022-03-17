@@ -6,8 +6,8 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
-import LeaderBoard from "./components/LeaderBoard";
-import Location from "./components/Location";
+import LeaderBoard from "./components/LeaderBoard/LeaderBoard";
+import Location from "./components/Location/Location";
 import Settings from "./components/Settings";
 // Context
 import UserProvider from "./context";
