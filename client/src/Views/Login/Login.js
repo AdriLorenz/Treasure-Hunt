@@ -46,11 +46,21 @@ const Login = () => {
 
           API.login(body).then(() => {
             localStorage.setItem('userEmail', email);
+            navigate("/profile");
+
+          }).catch(() => {
+            setError(true);
+            setTimeout(() => {
+              setError(false);
+              setLoading(false);
+              setEmail('');
+              setPassword('');
+              window.location.reload();
+            }, 2000);
+
           });
 
           setLoading(false);
-
-          navigate("/profile");
 
         } else {
           setPassError(true);
@@ -73,6 +83,7 @@ const Login = () => {
         setLoading(false);
         setEmail('');
         setPassword('');
+        window.location.reload();
       }, 2000);
     }
   }
