@@ -2,6 +2,7 @@ module.exports = (app) => {
   const categories = require("../controllers/category.controller.js");
   var router = require("express").Router();
   const images = require("../upload/upload");
+  const auth = require("../controllers/auth.controller");
 
   // INDEX
   router.get("/", categories.findAll);
