@@ -3,6 +3,9 @@ import DropIcon from "../../assets/icons/RSVamos_DropIcon.svg"
 import { Wrapper } from "./Location.style";
 
 const Location = () => {
+  /*handleClick =()=>{
+
+  }*/
   return (
     <Wrapper>
       <article>
@@ -18,8 +21,8 @@ const Location = () => {
 <section>
   <figure>
     <h2>Category</h2>
-    <img className="info" src={DropIcon} alt="More info button"/>
-    <img src="" alt="Themed after catagory"/>
+    <img className="info" src={DropIcon} alt="More info button" />
+    <img className="background" src="" alt="Themed after category"/>
     <figcaption>
       <p>Alot of text</p> 
     </figcaption>
