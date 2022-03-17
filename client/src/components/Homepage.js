@@ -3,8 +3,6 @@ import React, { useState } from "react";
 // import { useSwipeable } from "react-swipeable";
 // Components
 import Footer from "./Footer";
-// Hook
-//import { useHospitalsFetch } from "../hooks/useHospitalsFetch";
 // Images
 import PeopleBeach from "../assets/images/photos/peopleBeach.jpg";
 import PeopleCinema from "../assets/images/photos/peopleCinema.jpg";

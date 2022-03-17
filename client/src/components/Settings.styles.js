@@ -6,25 +6,48 @@ export const Wrapper = styled.div`
   flex-direction: column;
 
   h1 {
-    margin-top: 40px;
+    margin-top: 30px;
     color: var(--darkBlue);
-  }
-
-  input {
-    margin: 5%;
-    border: 0;
-    border-bottom: 3px solid var(--darkBlue);
-    font-size: 1.75rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    
   }
 
   #arrowBackIcon {
     position: absolute;
-    right: 1.5%;
-    width: 15%;
-    align: right;
+    right: 41%;
+    top: 10%;
+    width: 95%;
+    align: left;
     margin: 3%;
-    height: 40px;
+    height: 25px;
   }  
+
+  p{
+    text-align: left;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    color: var(--greyText);
+  }
+  .image{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    #lang{
+      margin-left: 0;
+      margin-right: 35%;
+    }
+    img{
+      margin-right: 3%;
+      width: 30px;
+    }
+    #englishFlag{
+      align: right;
+    }
+    #spanishFlag{
+      opacity: 40%;
+    }
+
+  }
+  
     
 `;
