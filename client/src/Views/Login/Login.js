@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Components
-import Button from "./Button";
+import Button from "../../components/Button";
 // Styles
 import { Wrapper, RegisterText, SubmitButton } from "./Login.styles";
 // Images
-import Settings from "../assets/icons/RSVamos_SettingsIcon.svg";
+import Settings from "../../assets/icons/RSVamos_SettingsIcon.svg";
 
 const Login = () => {
   const handleSubmit = () => {}

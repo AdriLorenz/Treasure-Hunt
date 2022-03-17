@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 // Styles
 import { Wrapper, Bt, TT } from "./Settings.styles";
 // Images
-import Back from "../assets/icons/RSVamos_ArrowBackIcon.svg";
-import EnglishFlag from "../assets/icons/RSVamos_EnglishIcon.svg";
-import SpanishFlag from "../assets/icons/RSVamos_SpanishIcons.svg";
+import Back from "../../assets/icons/RSVamos_ArrowBackIcon.svg";
+import EnglishFlag from "../../assets/icons/RSVamos_EnglishIcon.svg";
+import SpanishFlag from "../../assets/icons/RSVamos_SpanishIcons.svg";
 
 
 const Settings = () => {

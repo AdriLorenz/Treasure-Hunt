@@ -2,23 +2,23 @@ import React, { useState } from "react";
 
 // import { useSwipeable } from "react-swipeable";
 // Components
-import Footer from "./Footer";
+import Footer from "../../components/Footer";
 // Images
-import PeopleBeach from "../assets/images/photos/peopleBeach.jpg";
-import PeopleCinema from "../assets/images/photos/peopleCinema.jpg";
-import PeopleTalking from "../assets/images/photos/peopleTalking.jpg";
-import Logo from "../assets/icons/RSVamos_Logo.png";
-import GGLogo from "../assets/images/illustrations/GGLogo.png";
-import Goal3 from "../assets/images/illustrations/3.png";
-import Goal5 from "../assets/images/illustrations/5.png";
-import Goal7 from "../assets/images/illustrations/7.png";
-import Goal8 from "../assets/images/illustrations/8.png";
-import Goal11 from "../assets/images/illustrations/11.png";
-import Goal12 from "../assets/images/illustrations/12.png";
-import Goal13 from "../assets/images/illustrations/13.png";
-import Goal15 from "../assets/images/illustrations/15.png";
-import Goal16 from "../assets/images/illustrations/16.png";
-import Goal17 from "../assets/images/illustrations/17.png";
+import PeopleBeach from "../../assets/images/photos/peopleBeach.jpg";
+import PeopleCinema from "../../assets/images/photos/peopleCinema.jpg";
+import PeopleTalking from "../../assets/images/photos/peopleTalking.jpg";
+import Logo from "../../assets/icons/RSVamos_Logo.png";
+import GGLogo from "../../assets/images/illustrations/GGLogo.png";
+import Goal3 from "../../assets/images/illustrations/3.png";
+import Goal5 from "../../assets/images/illustrations/5.png";
+import Goal7 from "../../assets/images/illustrations/7.png";
+import Goal8 from "../../assets/images/illustrations/8.png";
+import Goal11 from "../../assets/images/illustrations/11.png";
+import Goal12 from "../../assets/images/illustrations/12.png";
+import Goal13 from "../../assets/images/illustrations/13.png";
+import Goal15 from "../../assets/images/illustrations/15.png";
+import Goal16 from "../../assets/images/illustrations/16.png";
+import Goal17 from "../../assets/images/illustrations/17.png";
 
 // Styles
 import { Wrapper, Content, CarouselItem, GG } from "./Homepage.styles";

@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Components
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
-import Homepage from "./components/Homepage";
-import Location from "./components/Location/Location";
-import LeaderBoard from "./components/LeaderBoard/LeaderBoard";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Settings from "./components/Settings";
+import Homepage from "./Views/HomePage/Homepage";
+import Location from "./Views/Location/Location";
+import LeaderBoard from "./Views/LeaderBoard/LeaderBoard";
+import Login from "./Views/Login/Login";
+import Register from "./Views/Register/Register";
+import Settings from "./Views/Settings/Settings";
 // Context
 import UserProvider from "./context";
 // Styles

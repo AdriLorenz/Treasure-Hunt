@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 
     }
   }
+  
   .carousel{
     overflow: hidden;
     position: relative;

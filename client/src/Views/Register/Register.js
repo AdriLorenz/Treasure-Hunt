@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
 // API
-import API from "../API";
+import API from "../../API";
 // Components
-import Button from "./Button";
+import Button from "../../components/Button";
 // Styles
 import { Wrapper, SubmitButton } from "./Register.styles";
 // Images
-import Back from "../assets/icons/RSVamos_ArrowBackIcon.svg";
-import Camera from "../assets/icons/RSVamos_CameraIcon.svg";
+import Back from "../../assets/icons/RSVamos_ArrowBackIcon.svg";
+import Camera from "../../assets/icons/RSVamos_CameraIcon.svg";
 
 const Register = () => {
   const [name, setName] = useState('');
