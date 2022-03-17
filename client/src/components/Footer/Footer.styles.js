@@ -7,6 +7,7 @@ display: flex;
 flex-direction: column;
 justify-content:space-evenly;
 
+//Using this global because we got some weird bugs
 *{
   padding:0;
   margin:0;
@@ -17,7 +18,6 @@ display: flex;
 flex-direction: row;
 justify-content:center;
 
-
   .footerLogo{
     width:35vw;
     padding: 10vw 0 5vw 
@@ -25,7 +25,6 @@ justify-content:center;
 
   ul{
     height:auto;
-    padding:0;
     width:100%;
     display: flex;
     flex-direction: column;
@@ -43,18 +42,18 @@ justify-content:center;
         img{
           top: 50%;
           transform: translateY(20%);
-
           height:7vw;
       }
       p{
         margin:0;
         line-height:1.5;
         font-size:1.5em;
-         color: white;
-
-         font-weight: bold;     
+        color: white;
+        font-weight: bold;     
          }
+
       .whiteIcon{
+        //Using "filter" to make an icon white
         filter: brightness(0) invert(1);
       }
     }
@@ -65,14 +64,13 @@ justify-content:center;
 .socialIcons{
         display: flex;
         flex-direction: row;
-      
         gap: 10vw;
-        img{
-           width: 15vw;
-           padding: 5vw 0 30vw;
-           filter: brightness(0) invert(1);
 
-           
+        img{
+            width: 15vw;
+            padding: 5vw 0 50vw;
+             //Using "filter" to make an icon white
+            filter: brightness(0) invert(1);
         }
   }
 `
