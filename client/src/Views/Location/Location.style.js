@@ -55,12 +55,14 @@ export const Wrapper = styled.div`
   padding:10vw 5vw;
 
       figure{
+
         position:relative;
         height:30vw;
         border-radius:15px;
         width:100%;
-        background-color:var(--darkBlue);
-
+        background-image:url;
+        background-repeat: no-repeat;
+        background-size: cover;
         h2{
           position:relative;
           top:50%;
@@ -77,14 +79,9 @@ export const Wrapper = styled.div`
               width:6vw;
               top:5vw;
               right:5vw;
+
           }
-          .background{
-            width:100%;
-            height:100%;
-            position:absolute;
-            top:0;
-            left:0;
-          }
+        
 
           figcaption{
             padding:15px;
