@@ -63,7 +63,6 @@ export const Wrapper = styled.div`
         background-image:url;
         background-repeat: no-repeat;
         background-size: cover;
-
         h2{
           position:relative;
           top:50%;
@@ -80,7 +79,9 @@ export const Wrapper = styled.div`
               width:6vw;
               top:5vw;
               right:5vw;
+
           }
+        
 
           figcaption{
             padding:15px;

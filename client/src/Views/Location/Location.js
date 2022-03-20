@@ -24,6 +24,8 @@ const Location = () => {
   <figure>
     <h2>Category</h2>
     <img className="info" src={DropIcon} alt="More info button" />
+
+    <img className="background" src="" alt="Themed after category"/>
     <figcaption>
       <p>Alot of text</p> 
     </figcaption>
