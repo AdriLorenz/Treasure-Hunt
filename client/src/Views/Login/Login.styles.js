@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
   h1 {
     margin-top: 40px;
     color: var(--darkBlue);
+    font-weight: 500;
   }
 
   p {

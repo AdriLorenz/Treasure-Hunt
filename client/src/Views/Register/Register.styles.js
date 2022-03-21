@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
   h1 {
     margin-top: 30px;
     color: var(--darkBlue);
+    font-weight: 500;
   }
 
   
@@ -59,7 +60,7 @@ export const Wrapper = styled.div`
   #backIcon {
     position: absolute;
     right: 41%;
-    top: 10%;
+    top: 8%;
     width: 95%;
     align: left;
     margin: 3%;

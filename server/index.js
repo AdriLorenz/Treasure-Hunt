@@ -37,11 +37,11 @@ app.use(passport.session());
 initializePassport(passport);
 console.log(session);
 
-app.post("/api/logout", (req, res) => {
-  req.logOut();
-  res.clearCookie("secretcode");
-  req.session.destroy((err) => res.redirect("/"));
-});
+// app.post("/api/logout", (req, res) => {
+//   req.logOut();
+//   res.clearCookie("secretcode");
+//   req.session.destroy((err) => res.redirect("/"));
+// });
 
 db.sequelize.sync().then(() => {
   console.log("Dropped an resync db");

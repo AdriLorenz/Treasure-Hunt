@@ -1,33 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+// Hooks
+import { useUserFetch } from "../../hooks/useUserFetch";
 // Styles
-import { Wrapper } from "./Profile.styles";
-// Components
-import ButtonEP from "../../components/ButtonEditProfile";
+import { Wrapper, Image, Button } from "./Profile.styles";
 // Images
 import Sett from "../../assets/icons/RSVamos_SettingsIcon.svg";
 import Profile from "../../assets/icons/RSVamos_ProfilePageIcon.svg";
 
 const Settings = () => {
-    const navigate = useNavigate();
-    const handleSubmit = async () => {
-        navigate("/settings");
-    };
-    return (
-        <Wrapper>
-            <Link to="/settings">
-                <img src={Sett} alt="Not-Found" id="settingsIcon" />
-            </Link>
-            <div>
-                <img src={Profile} alt="Not-Found" id="profileIcon" />
-            </div>
-            <h1>Username</h1>
-            <h2>Score</h2>
-            <ButtonEP text='Next' callback={handleSubmit}></ButtonEP>
+  const { state: user } = useUserFetch(localStorage.userEmail);
 
+  const navigate = useNavigate();
 
-        </Wrapper>
-    )
+  const handleSubmit = async () => {
+    navigate("/update-profile");
+  };
+
+  console.log(user);
+
+  return (
+    <Wrapper>
+      {user && (
+        <>
+          <Link to="/settings">
+            <img src={Sett} alt="Not-Found" id="settingsIcon" />
+          </Link>
+          <Image>
+            <img
+              src={user.user_img_path == ""
+                ? Profile
+                : "http://localhost:5000/" + user.user_img_path
+              }
+              alt="Not-Found"
+              id="profileIcon"
+            />
+          </Image>
+          <h1>{user.user_name}</h1>
+          <h2>Score: {user.user_score}</h2>
+          <Button type="button" onClick={handleSubmit}>Edit profile</Button>
+        </>
+      )}
+
+    </Wrapper>
+  )
 }
 
 export default Settings;

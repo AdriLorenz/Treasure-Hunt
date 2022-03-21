@@ -112,9 +112,9 @@ exports.create = async (req, res) => {
 // UPDATE
 exports.update = (req, res) => {
   const id = req.params.user_id;
+  req.body.user_img_path = userImagesDir + req.file.filename;
   User.update(req.body, {
-    where: { user_id: id },
-    user_img_path: userImagesDir + req.file.filename,
+    where: { user_id: id }
   })
     .then((num) => {
       if (num == 1) {

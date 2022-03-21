@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 // API
 import API from "../API";
 
-export const useUserFetch = doctorId => {
-  const [state, setState] = useState({});
+export const useUserFetch = userEmail => {
+  const [state, setState] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -13,11 +13,9 @@ export const useUserFetch = doctorId => {
         setLoading(true);
         setError(false);
 
-        const user = await API.getUsers(userId);
+        const user = await API.getUser(userEmail);
 
-        setState({
-          ...user
-        });
+        setState(...user);
 
         setLoading(false);
 
@@ -27,7 +25,7 @@ export const useUserFetch = doctorId => {
     }
 
     fetchUser()
-  }, [userId]);
+  }, [userEmail]);
 
   return { state, loading, error };
 }

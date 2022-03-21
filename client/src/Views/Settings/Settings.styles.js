@@ -25,14 +25,14 @@ export const Wrapper = styled.div`
   #arrowBackIcon {
     position: absolute;
     right: 41%;
-    top: 10%;
+    top: 8%;
     width: 95%;
     align: left;
     margin: 3%;
     height: 25px;
-  }  
+  }
 
-  p{
+  p {
     text-align: left;
     margin-left: 10%;
     font-size: 1.2rem;
@@ -41,27 +41,31 @@ export const Wrapper = styled.div`
     margin-right: 10%;
     
   }
-  .image{
+
+  .image {
     width:100%;
     display: flex;
     justify-content: center;
-    #lang{
+
+    #lang {
       margin-left: 0;
       margin-right: 35%;
     }
-    img{
+
+    img {
       margin-right: 3%;
       width: 30px;
     }
-    #spanishFlag{
+
+    #spanishFlag {
       opacity: 40%;
     }
   }
-  #line{
+
+  #line {
     border: 1px solid var(--darkBlue);
     margin-left: 10%;
     margin-right: 10%;
-
   }
     
 `;
@@ -71,22 +75,27 @@ export const Bt = styled.div`
   width:100%;
   display: flex;
   justify-content: center;
-  #not{
+
+  #not {
     margin-left: 0;
     margin-right: 35%;
   }
-  #cookies{
+
+  #cookies {
     margin-left: 0;
     margin-right: 46%;
   }
+
   #nightMode {
     margin-left: 0;
     margin-right: 37%;
   }
-  #shareL{
+
+  #shareL {
     margin-left: 0;
     margin-right: 30%;
   }
+
   .switch {
     position: relative;
     display: inline-block;
@@ -139,7 +148,6 @@ export const Bt = styled.div`
     transform: translateX(26px);
   }
 
-  /* Rounded sliders */
   .slider.round {
     border-radius: 50px;
   }

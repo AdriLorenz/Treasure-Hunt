@@ -6,37 +6,37 @@ const initialState = { results: [] }
 
 
 export const useUsersFetch = () => {
-    const [state, setState] = useState(initialState);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+  const [state, setState] = useState(initialState);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-    const fetchUsers = async () => {
-        try {
-            setError(false);
-            setLoading(true);
+  const fetchUsers = async () => {
+    try {
+      setError(false);
+      setLoading(true);
 
-            const users = await API.getUsers();
+      const users = await API.getUsers();
 
-            if (users) {
-                setState(prev => ({
-                    ...users,
-                    results:
-                        [...users]
-                }))
-            }
+      if (users) {
+        setState(prev => ({
+          ...users,
+          results:
+            [...users]
+        }))
+      }
 
-        } catch (error) {
-            setError(true);
-        }
+    } catch (error) {
+      setError(true);
+    }
 
-        setLoading(false);
-    };
+    setLoading(false);
+  };
 
-    useEffect(() => {
-        setState(initialState);
-        fetchUsers();
-    }, []);
+  useEffect(() => {
+    setState(initialState);
+    fetchUsers();
+  }, []);
 
-    return { state, loading, error };
+  return { state, loading, error };
 
 }
