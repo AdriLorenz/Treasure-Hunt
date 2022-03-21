@@ -74,17 +74,18 @@ export const Wrapper = styled.div`
         background-size: cover;
         transition:  0.2s;
 
+
 &#friendlyId{
   background-image:url(${Friendly});
   background-position: center;
 }
 &#romanticId{
   background-image:url(${Romantic});
-  background-position: center;
+  background-position: 0 -15vw;
 }
 &#familyId{
   background-image:url(${Family});
-          background-position: top;
+          background-position: 0;
 }
 &#chillId{
   background-image:url(${Chill});
