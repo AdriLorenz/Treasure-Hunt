@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import GlobalStyle from "../../GlobalStyle";
+
+import Friendly from "../../assets/images/friendly.jpg"
 
 
 export const Wrapper = styled.div`
@@ -53,16 +54,26 @@ export const Wrapper = styled.div`
   section{
   width:100%;
   padding:10vw 5vw;
+  margin-bottom:20vw;
 
       figure{
-
         position:relative;
         height:30vw;
         border-radius:15px;
         width:100%;
-        background-image:url;
+        margin-bottom:10vw;
+        background-image:url(${Friendly});
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
+        transition:  0.2s;
+
+
+        &.onClickFigure{
+          border-radius:15px 15px 0 0;
+          margin-bottom:40vw;
+
+        }
         h2{
           position:relative;
           top:50%;
@@ -79,9 +90,12 @@ export const Wrapper = styled.div`
               width:6vw;
               top:5vw;
               right:5vw;
+              transition:  0.2s;
 
+              &.onClickInfo{
+                transform:rotate(-180deg);
+              }      
           }
-        
 
           figcaption{
             padding:15px;
@@ -89,15 +103,28 @@ export const Wrapper = styled.div`
             height:30vw;
             border-radius: 0 0 15px 15px;
             width:100%;
-            top:100% ;
-            border: solid 3px var(--darkBlue);
+            top:0% ;
+            border: solid 5px var(--darkBlue);
+            border-top: none;
+
             z-index:-999;
+            opacity:0%;
+            transition:  0.2s;
+            &.onClickText{
+              top:100% ;
+              opacity:100%;
+            }      
+  
+
             p{
               color: var(--greyText);
               font-size:5vw;
               font-weight: 400;      
             }
           }
+
       }
   }
 `
+
+
