@@ -5,11 +5,11 @@ import DropIcon from "../../assets/icons/RSVamos_DropIcon.svg"
 import { Wrapper } from "./Location.style";
 
 const Location = () => {
-  function dropDown() {
-    let figure = document.querySelector("figure");
-    let info = document.querySelector(".info");
-    let text = document.querySelector(".text");
-    // let p = $(<p></p>)
+  function dropDown(el) {
+    let figure=el.parentElement;
+    let info = figure.querySelector(".info");
+    let text = figure.querySelector(".text");
+
     figure.classList.toggle("onClickFigure");
     info.classList.toggle("onClickInfo");
     text.classList.toggle("onClickText");
@@ -29,16 +29,16 @@ const Location = () => {
       <section>
         <figure>
           <h2>Friendly</h2>
-          <img className="info" src={DropIcon} alt="More info button" onClick={dropDown} />
+          <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
           <figcaption className="text">
             <p>Alot of text</p>
           </figcaption>
         </figure>
-
+ 
         <figure>
           <h2>Romantic</h2>
-          <img className="info" src={DropIcon} alt="More info button" onClick={dropDown} />
+          <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
           <figcaption className="text">
             <p>Alot of text</p>
@@ -47,7 +47,7 @@ const Location = () => {
 
         <figure>
           <h2>Family</h2>
-          <img className="info" src={DropIcon} alt="More info button" onClick={dropDown} />
+          <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
           <figcaption className="text">
             <p>Alot of text</p>
@@ -56,7 +56,7 @@ const Location = () => {
 
         <figure>
           <h2>Chill</h2>
-          <img className="info" src={DropIcon} alt="More info button" onClick={dropDown} />
+          <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
           <figcaption className="text">
             <p>Alot of text</p>
@@ -65,7 +65,7 @@ const Location = () => {
 
         <figure>
           <h2>Solo</h2>
-          <img className="info" src={DropIcon} alt="More info button" onClick={dropDown} />
+          <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
           <figcaption className="text">
             <p>Alot of text</p>
@@ -74,22 +74,13 @@ const Location = () => {
 
         <figure>
           <h2>Adventurous</h2>
-          <img className="info" src={DropIcon} alt="More info button" onClick={dropDown} />
+          <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
           <figcaption className="text">
             <p>Alot of text</p>
           </figcaption>
-        </figure>
-
-        <figure>
-          <h2>Intensive</h2>
-          <img className="info" src={DropIcon} alt="More info button" onClick={dropDown} />
-
-          <figcaption className="text">
-            <p>Alot of text</p>
-          </figcaption>
-        </figure>
-      </section>
+        </figure> 
+        </section>
 
     </Wrapper>
 
