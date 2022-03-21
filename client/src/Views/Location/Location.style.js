@@ -122,6 +122,7 @@ export const Wrapper = styled.div`
               width:6vw;
               top:5vw;
               right:5vw;
+              transform-origin: center;
               transition:  0.2s;
 
               &.onClickInfo{
