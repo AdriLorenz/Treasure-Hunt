@@ -27,7 +27,7 @@ const Location = () => {
       <h1>What is your group?</h1>
 
       <section>
-        <figure>
+        <figure id="friendlyId">
           <h2>Friendly</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
@@ -36,7 +36,7 @@ const Location = () => {
           </figcaption>
         </figure>
  
-        <figure>
+        <figure id="romanticId">
           <h2>Romantic</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
@@ -45,7 +45,7 @@ const Location = () => {
           </figcaption>
         </figure>
 
-        <figure>
+        <figure id="familyId">
           <h2>Family</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
@@ -54,7 +54,7 @@ const Location = () => {
           </figcaption>
         </figure>
 
-        <figure>
+        <figure id="chillId">
           <h2>Chill</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
@@ -63,7 +63,7 @@ const Location = () => {
           </figcaption>
         </figure>
 
-        <figure>
+        <figure id="soloId">
           <h2>Solo</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 
@@ -72,7 +72,7 @@ const Location = () => {
           </figcaption>
         </figure>
 
-        <figure>
+        <figure id="adventurousId">
           <h2>Adventurous</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e=>dropDown(e.target)} />
 

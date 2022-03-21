@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-import Friendly from "../../assets/images/friendly.jpg"
+import Friendly from "../../assets/images/photos/friendly.jpg"
+import Romantic from "../../assets/images/photos/romantic.jpg"
+import Family from "../../assets/images/photos/family.jpg"
+import Chill from "../../assets/images/photos/chill.jpg"
+import Solo from "../../assets/images/photos/solo.jpg"
+import Adventurous from "../../assets/images/photos/adventure.jpg"
+
+
+
 
 
 export const Wrapper = styled.div`
@@ -62,11 +70,34 @@ export const Wrapper = styled.div`
         border-radius:15px;
         width:100%;
         margin-bottom:10vw;
-        background-image:url(${Friendly});
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
         transition:  0.2s;
+
+&#friendlyId{
+  background-image:url(${Friendly});
+  background-position: center;
+}
+&#romanticId{
+  background-image:url(${Romantic});
+  background-position: center;
+}
+&#familyId{
+  background-image:url(${Family});
+          background-position: top;
+}
+&#chillId{
+  background-image:url(${Chill});
+          background-position: top;
+}
+&#soloId{
+  background-image:url(${Solo});
+          background-position: center;
+}
+&#adventurousId{
+  background-image:url(${Adventurous});
+          background-position: center;
+}
 
 
         &.onClickFigure{
