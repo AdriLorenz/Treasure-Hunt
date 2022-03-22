@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import DropIcon from "../../assets/icons/RSVamos_DropIcon.svg"
+import Back from "../../assets/icons/RSVamos_ArrowBackIcon.svg"
+
+
+
 
 
 import { Wrapper } from "./Location.style";
 
-const Location = () => {
+const LocationStep2 = () => {
   function dropDown(el) {
     let figure = el.parentElement;
     let info = figure.querySelector(".info");
@@ -17,84 +22,82 @@ const Location = () => {
     title.classList.toggle("onClickTitle");
     text.classList.toggle("onClickText");
   }
+
+  function multiSelect(el) {
+    let figure = el.parentElement;
+    let blueCircle = figure.querySelector(".blueCircle");
+
+    blueCircle.classList.toggle("blueCircleActive");
+  }
+
   return (
     <Wrapper>
+      <Link to="/Location">
+        <img src={Back} alt="Not-Found" id="arrowBackIcon" />
+      </Link>
       <article>
-        <p className="stepHighlight">Step 1</p>
+        <p>Step 1</p>
         <p>-</p>
-        <p>Step 2</p>
+        <p className="stepHighlight">Step 2</p>
         <p>-</p>
         <p>Step 3</p>
       </article>
 
-      <h1>What is your group?</h1>
+      <h1>What are you feeling?</h1>
 
       <section>
-        < figure id="friendlyId">
-          <Link to="/LocationStep2">
-            <h2 className="title">Friendly</h2>
-          </Link>
+        <figure id="outdoorsId">
+          <div className="whiteCircle">
+            <div className="blueCircle"></div>
+          </div>
+          <h2 className="title" onClick={e => multiSelect(e.target)}>Outdoors</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
             <p>Alot of text</p>
           </figcaption>
         </figure>
 
-        <figure id="romanticId">
-          <Link to="/LocationStep2">
-            <h2 className="title">Romantic</h2>
-          </Link>
+        <figure id="indoorsId">
+          <div className="whiteCircle">
+            <div className="blueCircle"></div>
+          </div>
+          <h2 className="title" onClick={e => multiSelect(e.target)}>Indoors</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
             <p>Alot of text</p>
           </figcaption>
         </figure>
 
-        <figure id="familyId">
-          <Link to="/LocationStep2">
-            <h2 className="title">Family</h2>
-          </Link>
+        <figure id="foodieId">
+          <div className="whiteCircle">
+            <div className="blueCircle"></div>
+          </div>
+          <h2 className="title" onClick={e => multiSelect(e.target)}>Foodie</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
             <p>Alot of text</p>
           </figcaption>
         </figure>
 
-        <figure id="chillId">
-          <Link to="/LocationStep2">
-            <h2 className="title">Chill</h2>
-          </Link>
+        <figure id="touristId">
+          <div className="whiteCircle">
+            <div className="blueCircle"></div>
+          </div>
+          <h2 className="title" onClick={e => multiSelect(e.target)}>Tourist</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
             <p>Alot of text</p>
           </figcaption>
         </figure>
-
-        <figure id="soloId">
-          <Link to="/LocationStep2">
-            <h2 className="title">Solo</h2>
-          </Link>
-          <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
-          <figcaption className="text">
-            <p>Alot of text</p>
-          </figcaption>
-        </figure>
-
-        <figure id="adventurousId">
-          <Link to="/LocationStep2">
-            <h2 className="title">Adventurous</h2>
-          </Link>
-          <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
-          <figcaption className="text">
-            <p>Alot of text</p>
-          </figcaption>
-        </figure>
-
+        <Link to="/LocationStep3">
+          <p className="nextPage">Next</p>
+        </Link>
       </section>
 
-    </Wrapper >
+
+    </Wrapper>
 
   )
 }
 
-export default Location;
+export default LocationStep2;
