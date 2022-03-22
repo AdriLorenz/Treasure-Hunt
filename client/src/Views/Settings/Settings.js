@@ -9,7 +9,11 @@ import SpanishFlag from "../../assets/icons/RSVamos_SpanishIcons.svg";
 
 
 const Settings = () => {
-
+  function changeOpacity(imageobject, opacity){
+    if(this.img){
+      opacity(this.img, 100);
+    }
+  }
   return (
     <Wrapper>
       {localStorage.userEmail ? (
@@ -27,7 +31,7 @@ const Settings = () => {
 
       <div className="image">
         <p id="lang">Language</p>
-        <img src={EnglishFlag} alt="Not-Found" id="englishFlag" />
+        <img src={EnglishFlag} alt="Not-Found" id="englishFlag" onClick=""/>
         <img src={SpanishFlag} alt="Not-Found" id="spanishFlag" />
       </div>
 

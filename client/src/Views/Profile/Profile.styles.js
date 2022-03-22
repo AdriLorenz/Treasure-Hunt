@@ -80,7 +80,7 @@ export const Tabb = styled.div`
   max-width: 900px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 30px 20px;
+  padding: 30px 0 30px 0;
   overflow: hidden;
 }
 #tabs{
@@ -95,18 +95,17 @@ span.diana {
 .diana + a {
   display: block;
   float: left;
-  height: 82px;
-  width: 80px;
-  line-height: 32px;
+  height: 70px;
+  width: 33.3%;
   padding: 0 10px;
   border: 1px solid #ddd;
   background-color: #eee;
   margin-bottom: -1px;
+  
   border-radius: 8px 8px 0 0;
-  margin-right: 10px;
+  text-align: center;
   text-decoration:none;
 }
-
 .diana:target + a {
   background-color: #fff;
   border-bottom-color: #fff; 
@@ -114,7 +113,7 @@ span.diana {
 
 #pnl_1, #pnl_2, #pnl_3{
   position: absolute;
-  top: 31px;
+  top: 70px;
   left: 0;
   border: none;
   clear: both;
@@ -162,6 +161,12 @@ span.diana {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+.tab-e {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 `

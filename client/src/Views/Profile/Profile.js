@@ -19,28 +19,8 @@ const Settings = () => {
   };
 
   console.log(user);
-  function dropDown(el) {
-    let figure = el.parentElement;
-    let info = figure.querySelector(".info");
-    let text = figure.querySelector(".text");
 
-    figure.classList.toggle("onClickFigure");
-    info.classList.toggle("onClickInfo");
-    text.classList.toggle("onClickText");
-  }
-  function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+  
   return (
     <Wrapper>
       {user && (
