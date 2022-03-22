@@ -30,9 +30,11 @@ export const Wrapper = styled.div`
     margin: 5%;
     border: 0;
     border-bottom: 3px solid var(--darkBlue);
+    font-family: 'Fredoka';
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 500;
     background-color: #effafa;
+    color: var(--darkBlue);
     height: 50px;
 
     ::placeholder {

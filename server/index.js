@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false })); //Parse URL-encoded bodies
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
   })
 );

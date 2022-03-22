@@ -2,6 +2,7 @@ const db = require("../models");
 const User = db.users;
 const bcrypt = require("bcrypt");
 const Op = db.Sequelize.Op;
+const fs = require("fs");
 
 const userImagesDir = "\\images\\";
 
@@ -110,9 +111,15 @@ exports.create = async (req, res) => {
 };
 
 // UPDATE
-exports.update = (req, res) => {
+exports.update = async (req, res) => {
   const id = req.params.user_id;
-  req.body.user_img_path = userImagesDir + req.file.filename;
+  if (req.body.user_password) {
+    const hashedPassword = await bcrypt.hash(req.body.user_password, 3);
+    req.body.user_password = hashedPassword;
+  }
+  if (req.file) {
+    req.body.user_img_path = userImagesDir + req.file.filename;
+  }
   User.update(req.body, {
     where: { user_id: id }
   })

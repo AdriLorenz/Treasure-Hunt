@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 import Friendly from "../../assets/images/photos/friendly.jpg"
 import Romantic from "../../assets/images/photos/romantic.jpg"
-import Family from "../../assets/images/photos/family.jpg"
-import Chill from "../../assets/images/photos/chill.jpg"
+import Family from "../../assets/images/photos/Family3.jpg"
+import Chill from "../../assets/images/photos/Chill.jpg"
 import Solo from "../../assets/images/photos/solo.jpg"
 import Adventurous from "../../assets/images/photos/adventure.jpg"
 

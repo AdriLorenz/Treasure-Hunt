@@ -1,3 +1,17 @@
+<br/>
+<div align="center">
+  <a href="https://github.com/AdriLorenz/Treasure-Hunt">
+    <img src="client/src/assets/icons/RSVamos_Logo.png" alt="Logo" width="400" />
+  </a>
+
+  <h3 align="center">An App for sustainable tourism.</h3>
+  <div flex-direction="row">
+    <img src="documentation/assets/icons/node.png" alt="NodeJS" width="50" />
+    <img src="documentation/assets/icons/react.png" alt="React" width="50" />
+    <img src="documentation/assets/icons/mysql.png" alt="MySQL" width="50" />
+  </div>
+</div>
+
 <details>
   <summary>Index</summary>
   <ol>

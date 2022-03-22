@@ -40,6 +40,17 @@ export const Wrapper = styled.div`
     font-weight: 500;
   }
 
+  #nameInput {
+    border: 0;
+    align: center;
+    font-size: 2rem;
+    width: 35%;
+    color: var(--greyText);
+    font-family: 'Fredoka';
+    font-weight: 500;
+    margin-top: 5%;
+  }
+
 `;
 
 export const Image = styled.div`
@@ -109,9 +120,11 @@ export const Content = styled.div`
     margin: 3% 0 3% 0;
     border: 0;
     border-bottom: 3px solid var(--darkBlue);
+    font-family: 'Fredoka';
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 500;
     background-color: #effafa;
+    color: var(--darkBlue);
     height: 50px;
 
     ::placeholder {
