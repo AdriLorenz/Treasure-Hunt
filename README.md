@@ -6,9 +6,9 @@
 
   <h3 align="center">An App for sustainable tourism.</h3>
   <div flex-direction="row">
-    <img src="documentation/assets/icons/node.png" alt="NodeJS" width="50" />
-    <img src="documentation/assets/icons/react.png" alt="React" width="50" />
-    <img src="documentation/assets/icons/mysql.png" alt="MySQL" width="50" />
+    <img src="documentation/assets/icons/node.png" alt="NodeJS" width="200" />
+    <img src="documentation/assets/icons/react.png" alt="React" width="100" />
+    <img src="documentation/assets/icons/mysql.png" alt="MySQL" width="150" />
   </div>
 </div>
 
