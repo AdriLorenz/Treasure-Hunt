@@ -8,7 +8,7 @@
   <div flex-direction="row" align-items="center">
     <img src="documentation/assets/icons/node.png" alt="NodeJS" width="150" />
     <img src="documentation/assets/icons/react.png" alt="React" height="150" />
-    <img src="documentation/assets/icons/mysql.png" alt="MySQL" width="150" />
+    <img src="documentation/assets/icons/mysql.png" alt="MySQL" height="150" />
   </div>
 </div>
 
