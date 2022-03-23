@@ -29,6 +29,7 @@
 <div align="center">
   <img width="400" alt="uc" src="https://user-images.githubusercontent.com/77303061/159698933-7a70140a-4da9-4b92-9517-eede60b4fc2a.jpg">
 </div>
+<p>Global goals</p>
 
 <h3>Prototype</h3>
 <p><a href="https://xd.adobe.com/view/ad519491-90ca-4e75-81d8-0cf3004bf9b9-f802/">Prototype link</a></p>
