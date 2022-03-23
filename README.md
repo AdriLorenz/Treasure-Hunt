@@ -6,29 +6,55 @@
 
   <h3 align="center">An App for sustainable tourism.</h3>
   <div flex-direction="row" align-items="center">
+    <img src="documentation/assets/icons/mysql.png" alt="MySQL" width="180" height="100"/>
     <img src="documentation/assets/icons/node.png" alt="NodeJS" width="150" />
-    <img src="documentation/assets/icons/react.png" alt="React" height="150" />
-    <img src="documentation/assets/icons/mysql.png" alt="MySQL" width="150" />
+    <img src="documentation/assets/icons/react.png" alt="React" height="110" />
   </div>
+
 </div>
 
-<details>
-  <summary>Index</summary>
-  <ol>
-    <li>
-      <a href="#treasure-hunt">Treasure-Hunt</a>
-    </li>
-  </ol>
-</details>
+<h2>Index</h2>
 
-# Treasure-Hunt
+* [Description](#description)
+* [Prototype](#prototype)
+* [](#)
+* [](#)
+* [](#)
+* [](#)
+* [Colors used](#colors-used)
+
+
+<h3>Description</h3>
+<p>Our application called "Ready,Set,Vamos!", was made with MySQL, Node.js and React. It is a meeting app for people who want to go to places in Gran Canaria, where you can decide which type of places you want to go and then some routes will appear for you to decide. It also has a system of points where you earn them by completing routes and then use them as discount in places like restaurants, cinemas ...</p>
+<div align="center">
+  <img width="400" alt="uc" src="https://user-images.githubusercontent.com/77303061/159698933-7a70140a-4da9-4b92-9517-eede60b4fc2a.jpg">
+</div>
+
+<h3>Protoype</h3>
+<p><a href="https://xd.adobe.com/view/ad519491-90ca-4e75-81d8-0cf3004bf9b9-f802/">Prototype link</a></p>
+<div align="left">
+  <img width="200" alt="uc" src="https://user-images.githubusercontent.com/77303061/159700078-abf2d68e-b1e0-4323-a49d-985f885b92f8.png">
+  
+</div>
+<div align="right">
+  <p>Home page</p>
+</div>
+
+
+
+
+<h3></h3>
+<h3></h3>
+<h3></h3>
+<h3></h3>
+
+
+
+<h3>Colors used</h3>
 
 Google Fonts - Fredoka
 https://fonts.google.com/specimen/Fredoka#standard-styles
 - Used on all the text.
-
-
-- Colors -
 
 DarkBlue - #54B2CC
 - used mostly as a higlight color, title color and interactable buttons.
