@@ -40,6 +40,8 @@ export const Wrapper = styled.div`
     width: 95%;
     margin: 3%;
     height: 25px;
+    z-index:999;
+
   }  
     article{
         display: flex;
@@ -170,7 +172,7 @@ export const Wrapper = styled.div`
               right:5vw;
               transition:  0.2s;
               &.onClickInfo{
-                top:4vw;
+                top:3vw;
                 transform:rotate(-180deg);
               }      
           }
@@ -270,10 +272,129 @@ export const Wrapper = styled.div`
               }
                  p{
                   color: var(--greyText);
-                  font-size:5vw;
-                  font-weight: 400;      
+                  font-size:4.5vw;
+                  font-weight: 400;
+                  
+                  &.descriptionTitles{
+                   opacity:50%; 
+                   font-weight: 500;
+                  }
+                  &.space{
+                    margin-top:5vw;
+                   }
+                  &.descriptionTitles{
+                    opacity:50%; 
+                    font-weight: 500;
+                   }
+                   &.numberPT{
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    font-size:6vw;
+                    font-weight: 500;
+                   }
+                   &.mapButton{
+                    position:absolute;
+                    bottom:15px;
+                    right:15px;
+                    font-size:10vw;
+                    font-weight: 500;
+                    color:var(--darkBlue);
+                   }
+   
               }
             }
           }
+
+
+
+
+&.map{
+  position:absolute;
+  left:0;
+  top:0;
+  width: 100vw;
+  height: 100vh;
+  &.onClickSectionMap{
+    overflow:hidden;
+  }
+
+  .mapImage{
+    border-radius:0px;
+            position:absolute;
+            left:0;
+            top:0;
+            width: 100vw;
+            height: 100vh;
+            margin-bottom:0;
+            background-color: var(--greyText);
+            .mapInfo{
+               position:absolute;
+               width:10vw;
+               bottom:30vw;
+               transform: translateY(-50%);
+               right:4vw;
+               transition:  0.2s;
+               z-index:10;
+             &.onClickInfoMap{
+              bottom:35vw;
+              transform:rotate(-180deg);
+           }
+             
+             
+         }
+         .textMap{
+           display:none;
+          background-color:white;
+          padding:0px;
+          position:absolute;
+          height:4vw;
+          border:none;
+          width:100%;
+          top:90vh;
+          left:0;
+          z-index:9;
+          opacity:0%;
+          transition:  0.2s;
+          &.onClickTextMap{
+            display:block;
+            padding:15px;
+            top:75vh;
+            height:120vw;
+            opacity:100%;
+          }
+          p{
+            color: var(--greyText);
+            font-size:6vw;
+            font-weight: 400;
+            
+            &.descriptionTitles{
+             opacity:50%; 
+             font-weight: 500;
+            }
+            &.space{
+              margin-top:5vw;
+             }
+            &.descriptionTitles{
+              opacity:50%; 
+              font-weight: 500;
+             }
+             &.numberPT{
+              margin-top:5vw;
+              font-size:7vw;
+              font-weight: 500;
+             }
+            }
+
+         }
+         
+
+}
+  
+}
+
+       
+
  }
+ 
 `
