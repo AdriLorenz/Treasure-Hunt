@@ -36,7 +36,7 @@ const Location = () => {
           </Link>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>A friendly place is pleasant and makes you feel happy and comfortable:</p>
           </figcaption>
         </figure>
 
@@ -46,7 +46,7 @@ const Location = () => {
           </Link>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>A romantic place that evokes the descriptions of novels by its picturesque charm, that seduces the eye and touches the sensibility.</p>
           </figcaption>
         </figure>
 
@@ -56,7 +56,7 @@ const Location = () => {
           </Link>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>It is the place where parents, children, grandparents, grandchildren, find themselves, far from the daily constraints.</p>
           </figcaption>
         </figure>
 
@@ -66,7 +66,7 @@ const Location = () => {
           </Link>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>A place to relax without being harrassed . A place to loiter. A place to hang out with friends or by yourself without obtrusion</p>
           </figcaption>
         </figure>
 
