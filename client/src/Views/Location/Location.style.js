@@ -43,6 +43,16 @@ export const Wrapper = styled.div`
     z-index:999;
 
   }  
+  #arrowBackIconMap {
+    position: absolute;
+    right: 41%;
+    top: 10%;
+    width: 95%;
+    margin: 3%;
+    height: 25px;
+    z-index:999;
+    filter: brightness(0) invert(1);
+  }
     article{
         display: flex;
         flex-direction: row;
@@ -71,6 +81,27 @@ export const Wrapper = styled.div`
   width:100%;
   padding:10vw 5vw;
   margin-bottom:40vw;
+
+  &#mapSection {
+    padding: 0;
+  }
+
+  #map {
+    width: 390px;
+    height: 699px !important;
+    margin-top: 60px;
+    margin-bottom: 85px;
+    z-index: 100;
+  }
+
+  .leaflet-div-icon {
+    border: 0;
+    background: transparent;
+  }
+
+  .leaflet-left {
+    left: 85%;
+  }
       figure{
         position:relative;
         height:30vw;
@@ -269,6 +300,7 @@ export const Wrapper = styled.div`
                 top:100% ;
                 height:60vw;
                 opacity:100%;
+                z-index: 0;
               }
                  p{
                   color: var(--greyText);
@@ -335,10 +367,12 @@ export const Wrapper = styled.div`
                transform: translateY(-50%);
                right:4vw;
                transition:  0.2s;
-               z-index:10;
+               z-index:10000000;
+               filter: brightness(0) invert(1);
              &.onClickInfoMap{
               bottom:35vw;
               transform:rotate(-180deg);
+              filter: brightness(1) invert(0);
            }
              
              
@@ -353,13 +387,13 @@ export const Wrapper = styled.div`
           width:100%;
           top:90vh;
           left:0;
-          z-index:9;
+          z-index:999;
           opacity:0%;
           transition:  0.2s;
           &.onClickTextMap{
             display:block;
             padding:15px;
-            top:75vh;
+            top:55vh;
             height:120vw;
             opacity:100%;
           }

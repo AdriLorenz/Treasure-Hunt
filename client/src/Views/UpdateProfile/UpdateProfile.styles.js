@@ -45,7 +45,7 @@ export const Wrapper = styled.div`
     align: center;
     font-size: 2rem;
     width: 35%;
-    color: var(--greyText);
+    color: var(--dirtyBlue);
     font-family: 'Fredoka';
     font-weight: 500;
     margin-top: 5%;
@@ -130,8 +130,8 @@ export const Content = styled.div`
     ::placeholder {
       color: var(--dirtyBlue);
     }
-
   }
+  
 
   .bottomButtons {
     width: 100%;

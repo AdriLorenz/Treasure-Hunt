@@ -15,6 +15,7 @@ import Register from "./Views/Register/Register";
 import Settings from "./Views/Settings/Settings";
 import Profile from "./Views/Profile/Profile";
 import UpdateProfile from "./Views/UpdateProfile/UpdateProfile";
+import Test from "./Views/Test";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -38,6 +39,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/update-profile" element={<UpdateProfile />} />
+            <Route path="/test" element={<Test />} />
           </Routes>
           <NavBar />
           <GlobalStyle />

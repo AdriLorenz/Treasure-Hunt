@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import DropIcon from "../../assets/icons/RSVamos_DropIcon.svg"
 import Back from "../../assets/icons/RSVamos_ArrowBackIcon.svg"
@@ -15,6 +15,12 @@ import { ReactComponent as WhiteStar } from '../../assets/icons/RSVamos_WhiteSta
 import { Wrapper } from "./Location.style";
 
 const LocationStep3 = () => {
+  const navigate = useNavigate();
+
+  const handleFirstTour = () => {
+    navigate("/Map");
+  }
+
   function dropDown(el) {
     let figure = el.parentElement;
     let info = figure.querySelector(".info");
@@ -45,13 +51,13 @@ const LocationStep3 = () => {
 
       <section>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+          <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <BlueStar className="star "/>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <BlueStar className="star " />
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
@@ -65,21 +71,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -89,21 +97,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -113,21 +123,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -137,21 +149,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -161,21 +175,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -185,21 +201,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -209,21 +227,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -233,21 +253,23 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" >Title</h2>
+        <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
           <div>
-            <BlueStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
-            <WhiteStar className="star "/>
+            <BlueStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
+            <WhiteStar className="star " />
           </div>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="routePackageText">
-          <p className="descriptionTitles">Distance:</p>
+            <p className="descriptionTitles">Distance:</p>
             <p className="descriptionTitles">Duration:</p>
 
             <p className="descriptionTitles space">Check-points:</p>
@@ -257,7 +279,9 @@ const LocationStep3 = () => {
             <p className="descriptionAdress">-Location</p>
 
             <p className="numberPT">Number PT</p>
-            <p className="mapButton">Map</p>
+            <Link to="/Map">
+              <p className="mapButton">Map</p>
+            </Link>
           </figcaption>
         </figure>
 

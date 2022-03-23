@@ -1,6 +1,12 @@
 import styled from "styled-components"
 
 export const Wrapper = styled.div`
+
+
+*{
+  padding: 0;
+  margin:0;
+}
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,8 +125,15 @@ span.diana {
   clear: both;
   overflow: hidden;
 }
+//first and second "Sections"
+  #pnl_1 > div, #pnl_2 > div{
+    opacity: 0;
+    transition: all 0.1s ease;
+    padding: 10vw 5vw 0;
+  }
 
-  #pnl_1 > div, #pnl_2 > div, #pnl_3 > div{
+  //Third "Section"
+  #pnl_3 > div{
     opacity: 0;
     transition: all 0.1s ease;
     padding: 30px;
@@ -135,11 +148,15 @@ span.diana {
   opacity: 1;
   transition: all 1s ease;
 }
-
-#hole{
-  width:10%;
-  margin-right: 20px;
-  margin-bottom: 20px;
+#images{
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap:4vw;
+}
+.hole{
+  width:100%;
+  margin: auto;
 }
 
 .button {
@@ -168,5 +185,105 @@ span.diana {
   justify-content: center;
   align-items: center;
 }
+
+.routePackage{
+        z-index: 999;
+        position:relative;
+        height:10vw;
+        border-radius:10px;
+        width:100%;
+        margin-bottom:5vw;
+        transition:  0.2s;
+        background-color:var(--dirtyBlue);
+        padding:0 4vw;
+        &.onClickFigure{
+          border-radius:15px 15px 0 0;
+          margin-bottom:65vw;
+        }
+        .routePackageTitle{
+          display:inline-block;
+          top:50%;
+          transform: translateY(20%);
+          color: var(--white);
+          text-align:left;
+          font-size:6vw;
+          font-weight: 500; 
+          transition:  0.2s;
+        }
+        div{
+          position:ralitive;
+          display:inline-block;
+          height:5vw;
+          top:50%;
+          transform: translateY(30%);
+          margin-left:30vw;
+          .star{
+            height:100%;
+          }
+        }
+        .info{
+          //Using "filter" to make an icon white
+          filter: brightness(0) invert(1);
+          position:absolute;
+          width:5vw;
+          top:5vw;
+          transform: translateY(-50%);
+          right:4vw;
+          transition:  0.2s;
+        }  
+            .routePackageText{
+              padding:15px;
+              position:absolute;
+              height:10vw;
+              border-radius: 0 0 15px 15px;
+              width:100%;
+              top:0% ;
+              left:0;
+              border: solid 5px var(--dirtyBlue);
+              border-top: none;
+              z-index:-999;
+              opacity:0%;
+              transition:  0.2s;
+              &.onClickText{
+                top:100% ;
+                height:60vw;
+                opacity:100%;
+                z-index: 0;
+              }
+                 p{
+                  color: var(--greyText);
+                  font-size:4.5vw;
+                  font-weight: 400;
+                  
+                  &.descriptionTitles{
+                   opacity:50%; 
+                   font-weight: 500;
+                  }
+                  &.space{
+                    margin-top:5vw;
+                   }
+                  &.descriptionTitles{
+                    opacity:50%; 
+                    font-weight: 500;
+                   }
+                   &.numberPT{
+                    position:absolute;
+                    top:15px;
+                    right:15px;
+                    font-size:6vw;
+                    font-weight: 500;
+                   }
+                   &.mapButton{
+                    position:absolute;
+                    bottom:15px;
+                    right:15px;
+                    font-size:10vw;
+                    font-weight: 500;
+                    color:var(--darkBlue);
+                   }
+   
+              }
+            }
+          }
 
 `

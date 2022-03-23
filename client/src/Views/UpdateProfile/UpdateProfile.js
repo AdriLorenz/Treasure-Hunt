@@ -22,7 +22,7 @@ const UpdateProfile = () => {
   const [newPass, setNewPass] = useState('');
   const [oldEmail, setOldEmail] = useState('');
   const [newEmail, setNewEmail] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
 
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -205,7 +205,7 @@ const UpdateProfile = () => {
               <>
                 <Image>
                   <img
-                    src={image != null
+                    src={image != "http://localhost:5000/"
                       ? image
                       : Blank}
                     alt="Not-Found"
