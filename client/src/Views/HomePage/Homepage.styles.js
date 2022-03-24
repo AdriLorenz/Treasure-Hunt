@@ -106,8 +106,18 @@ export const GG = styled.div`
             }
         }
         
+           
+             
+               
+            
+        
+                 
+       }
+       
     }
 `
+
+
 
 export const Content = styled.div`
     display: flex;
@@ -143,11 +153,8 @@ export const CarouselItem = styled.div`
     display: inline-flex;
     /* align-items: center;
     justify-content: center; */
-    height: 700px;
+    height: 350px;
     width: 100%;
 
-    @media screen and (max-width: 500px) {
-        height: 350px;
-    }
-
+   
 `

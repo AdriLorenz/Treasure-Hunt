@@ -27,10 +27,15 @@ export const Wrapper = styled.div`
       opacity: 1;
     }
   }
+  
 
   *{
       padding:0;
       margin:0;
+  }
+
+  .leaflet-routing-collapsible {
+    display: none;
   }
 
   #arrowBackIcon {
@@ -51,7 +56,7 @@ export const Wrapper = styled.div`
     margin: 3%;
     height: 25px;
     z-index:999;
-    filter: brightness(0) invert(1);
+    //filter: brightness(0) invert(1);
   }
     article{
         display: flex;
@@ -368,7 +373,7 @@ export const Wrapper = styled.div`
                right:4vw;
                transition:  0.2s;
                z-index:10000000;
-               filter: brightness(0) invert(1);
+               //filter: brightness(0) invert(1);
              &.onClickInfoMap{
               bottom:35vw;
               transform:rotate(-180deg);

@@ -51,6 +51,9 @@ export const Wrapper = styled.div`
     margin: 3%;
     height: 40px;
   }  
+
+ 
+    
     
 `;
 
@@ -63,6 +66,7 @@ export const RegisterText = styled.div`
     color: var(--darkBlue);
     font-weight: bold;
   }
+ 
 
 `
 

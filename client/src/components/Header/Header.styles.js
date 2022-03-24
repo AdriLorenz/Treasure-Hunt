@@ -7,13 +7,13 @@ export const Wrapper = styled.header`
   background: var(--lightBlue);
   padding: 0 20px;
   width: 100%;
-  height: 90px;
+  height: 60px;
   border-bottom: 3px solid var(--darkBlue);
   z-index: 1000000;
 
-  @media screen and (max-width: 500px) {
+  /* @media screen and (max-width: 500px) {
     height: 60px;
-  }
+  } */
 
 `;
 

@@ -53,7 +53,7 @@ const LocationStep2 = () => {
           <h2 className="title" onClick={e => multiSelect(e.target)}>Outdoors</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>Do you like going outside? Some fresh air and pretty places. Then this is for you.</p>
           </figcaption>
         </figure>
 
@@ -64,7 +64,7 @@ const LocationStep2 = () => {
           <h2 className="title" onClick={e => multiSelect(e.target)}>Indoors</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>For the people that like doing activities without worrying about the weather. This includes every kind of activities.</p>
           </figcaption>
         </figure>
 
@@ -75,7 +75,7 @@ const LocationStep2 = () => {
           <h2 className="title" onClick={e => multiSelect(e.target)}>Foodie</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>Having food is great. Here you can discover a lot of places with incredible tastes.</p>
           </figcaption>
         </figure>
 
@@ -86,7 +86,7 @@ const LocationStep2 = () => {
           <h2 className="title" onClick={e => multiSelect(e.target)}>Tourist</h2>
           <img className="info" src={DropIcon} alt="More info button" onClick={e => dropDown(e.target)} />
           <figcaption className="text">
-            <p>Alot of text</p>
+            <p>Great for getting to know new places. Discover landmarks from all over the city.</p>
           </figcaption>
         </figure>
         <Link to="/LocationStep3">

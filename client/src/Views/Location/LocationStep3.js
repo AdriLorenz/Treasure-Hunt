@@ -51,8 +51,8 @@ const LocationStep3 = () => {
 
       <section>
         <figure className="routePackage">
-          <h2 className="routePackageTitle" onClick={handleFirstTour}>Title</h2>
-          <div>
+          <h2 className="routePackageTitle" onClick={handleFirstTour}>What</h2>
+          <div className="stars">
             <BlueStar className="star " />
             <BlueStar className="star " />
             <BlueStar className="star " />
