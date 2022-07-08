@@ -17,7 +17,6 @@
 
 * [Description](#description)
 * [Prototype](#prototype)
-* [](#)
 * [Technologies used](#technologies-used)
 * [Installation manual](#installation-manual)
 * [Conclusion](#conclusion)
